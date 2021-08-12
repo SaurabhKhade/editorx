@@ -1,17 +1,13 @@
 {
   "name": "mini_project",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
-    "react-swipeable": "^6.1.2",
-    "web-vitals": "^1.0.1"
+    "react-swipeable": "^6.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -27,14 +23,15 @@
   },
   "browserslist": {
     "production": [
+      "last 30 versions",
       ">0.2%",
       "not dead",
       "not op_mini all"
     ],
     "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 10 chrome version",
+      "last 10 firefox version",
+      "last 10 safari version"
     ]
   }
 }
