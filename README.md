@@ -6,4 +6,4 @@ A mini projectfor TY CSE SEM 5. This is a editor for so many different languages
 
 * **Saurabh Khade** : [SaurabhKhade](https://github.com/SaurabhKhade)
 * **Malhar Dhaygude** : [malhardhaygude8004](https://github.com/malhardhaygude8004)
-* **Farhan Momin**
+* **Farhan Momin** : [Farhan616](https://github.com/Farhan616)
