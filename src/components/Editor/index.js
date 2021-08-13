@@ -1,8 +1,8 @@
 import React from "react";
 import Ace from "react-ace";
-import "./editor.css";
-// for actual code, skip to end of this page
 
+
+// for actual code, skip to end of this page
 // Ace Modes
 import "ace-builds/src-noconflict/mode-actionscript";
 import "ace-builds/src-noconflict/mode-applescript";
@@ -65,11 +65,13 @@ import "ace-builds/src-noconflict/mode-scala";
 import "ace-builds/src-noconflict/mode-scss";
 
 
+
 // Keybindings
 import "ace-builds/src-noconflict/keybinding-emacs";
 import "ace-builds/src-noconflict/keybinding-sublime";
 import "ace-builds/src-noconflict/keybinding-vim";
 import "ace-builds/src-noconflict/keybinding-vscode";
+
 
 
 // Ace Themes
@@ -111,6 +113,7 @@ import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
 import "ace-builds/src-noconflict/theme-twilight";
 import "ace-builds/src-noconflict/theme-vibrant_ink";
 import "ace-builds/src-noconflict/theme-xcode";
+
 
 
 // Ace Snippets
@@ -179,22 +182,17 @@ import "ace-builds/src-noconflict/snippets/scss";
 // Language tools
 import "ace-builds/src-noconflict/ext-language_tools"
 import "ace-builds/src-noconflict/ext-keybinding_menu";
-import "ace-builds/src-noconflict/ext-emmet";
-import "ace-builds/src-noconflict/ext-error_marker";
+
 
 
 // Actual Code
-function onChange(newValue) {
-  console.log("change", newValue);
-}
-
 export default function Editor({lang,theme}) {
   return (
     <Ace
       placeholder="Placeholder Text"
       mode={lang}
       theme={theme}
-      onChange={onChange}
+      onChange={()=>{}}
       fontSize={14}
       showPrintMargin={true}
       showGutter={true}
