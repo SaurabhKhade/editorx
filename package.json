@@ -3,6 +3,7 @@
   "name": "mini_project",
   "version": "1.0.0",
   "private": false,
+  "license": "none",
   "dependencies": {
     "react": "^17.0.2",
     "react-ace": "^9.4.3",

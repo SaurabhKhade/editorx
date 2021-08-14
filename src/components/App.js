@@ -1,6 +1,8 @@
 import Editor from './Editor';
 import {useState} from 'react';
+import Sidebar from './Sidebar';
 import "./App.css";
+
 
 export default function App() {
   let [lang,setLang] = useState("c_cpp");
@@ -11,7 +13,7 @@ export default function App() {
       <div className="editor-wrapper">
         <Editor lang={lang} theme={theme}/>
       </div>
-      
+      <Sidebar />
       
       {/*Unwanted*/}
       <h3>Some Langs</h3>
