@@ -1,9 +1,36 @@
 {
   "homepage": "https://saurabhkhade.github.io/mini-project-sem5",
   "name": "mini_project",
+  "description": "This is a powerfull code editor based on acejs and has lot features like code autocompletion, code snippets, syntax highliting, keyboard shortcuts and lot more.",
   "version": "1.0.0",
   "private": false,
-  "license": "none",
+  "repository": "github:SaurabhKhade/mini-project-sem5",
+  "license": "ISC",
+  "main": "src/index.js",
+  "author": {
+    "name": "Saurabh Khade",
+    "email": "khadesaurabh056@gmail.com",
+    "url": "https://saurabhkhade.github.io"
+  },
+  "contributors": [
+    {
+      "name": "Saurabh Khade",
+      "email": "khadesaurabh056@gmail.com",
+      "url": "https://saurabhkhade.github.io"
+    },
+    {
+      "name": "Malhar Dhaygude"
+    },
+    {
+      "name": "Farhan Momin"
+    }
+  ],
+  "keywords": [
+    "editor",
+    "code editor",
+    "online editor",
+    "online vs code"
+  ],
   "dependencies": {
     "react": "^17.0.2",
     "react-ace": "^9.4.3",
