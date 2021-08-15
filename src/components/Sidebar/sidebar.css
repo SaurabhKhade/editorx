@@ -8,6 +8,7 @@
   z-index: 20;
   background-color: var(--sidebar);
   padding: 20px 10px;
+  overflow-y: scroll;
 }
 
 .tab {
