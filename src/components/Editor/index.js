@@ -191,28 +191,15 @@ import "ace-builds/src-noconflict/ext-keybinding_menu";
 
 
 
-// Actual Code
+// Editor Code
 export default function Editor( {lang}) {
   let [config] = useConfig();
   return (
     <Ace
-      placeholder="Placeholder Text"
       mode={lang}
-      theme="monokai"
-      onChange={()=> {}}
-      fontSize={14}
-      showPrintMargin={true}
-      showGutter={true}
-      highlightActiveLine={true}
-      keyboardHandler="vscode"
-      width="100%"
-      height="100%"
-      enableBasicAutocompletion={true}
-      enableLiveAutocompletion={true}
-      enableSnippets={true}
-      tabSize={2}
       {...config}
-      editorProps={ { $blockScrolling: true }} />
+      editorProps={{$blockScrolling:true}}
+      />
   );
 }
 

@@ -1,11 +1,20 @@
-export default function Switch({label,enabled}) {
+import {useConfig} from '../hooks';
+
+export default function Switch({label,labelFor}) {
+  const [config,setConfig] = useConfig();
+  
+  let enabled = config[labelFor];
   
   const style = {
-    backgroundColor: `var(${enabled?'--switch':'--tab-bg'})`
+    opacity: enabled?'1':'0'
+  };
+  
+  function click() {
+    setConfig({[labelFor]:!enabled});
   }
   
   return (
-    <div>
+    <div onClick={click}>
       <p>{label}</p>
       <div className="switch">
         <div style={style}>

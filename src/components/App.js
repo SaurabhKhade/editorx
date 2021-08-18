@@ -37,8 +37,14 @@ export default function App() {
       <button onClick={()=>setTheme("dracula")}>Dracula</button>
       <button onClick={()=>setTheme("terminal")}>Terminal</button>
       
-      <br />
-      <button onClick={toggle}>Sidebar</button>  
+      <br /><br />
+      <button style={sidebar} onClick={toggle}>Sidebar Open/Close</button>  
     </div>
   );
+}
+
+const sidebar = {
+  padding: '10px',
+  fontSize: '18px',
+  fontWeight: 'bold'
 }

@@ -58,9 +58,24 @@
 .switch div {
   height: 85%;
   width: 85%;
-  /* background-color: var(--switch); */
+  background-color: var(--switch);
+}
+
+.selected {
+  color: var(--selected);
 }
 
 .hasInput {
   border-color: var(--tab-bg);
+  padding: 0;
+}
+
+.hasInput input {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  color: var(--sidebar-color);
+  border: none;
+  font-weight: bold;
 }

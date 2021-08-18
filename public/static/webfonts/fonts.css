@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'Monoid';
+  src: url('monoid-webfont.woff2') format('woff2'),
+  url('monoid-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Droid Sans';
+  src: url('droidsans-webfont.woff2') format('woff2'),
+  url('droidsans-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Courier Prime Code';
+  src: url('courierprimecode-webfont.woff2') format('woff2'),
+  url('courierprimecode-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Press Start 2p';
+  src: url('pressstart2p-webfont.woff2') format('woff2'),
+  url('pressstart2p-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Hack';
+  src: url('hack-webfont.woff2') format('woff2'),
+  url('hack-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Monolisa';
+  src: url('monolisa-webfont.woff2') format('woff2'),
+  url('monolisa-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Dank Mono';
+  src: url('dankmono-webfont.woff2') format('woff2'),
+  url('dankmono-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Noto Mono';
+  src: url('notomono-webfont.woff2') format('woff2'),
+  url('notomono-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('opensans-webfont.woff2') format('woff2'),
+  url('opensans-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Apercu Mono';
+  src: url('apercumono-webfont.woff2') format('woff2'),
+  url('apercumono-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Fira Code';
+  src: url('firacode-webfont.woff2') format('woff2'),
+  url('firacode-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('roboto-webfont.woff2') format('woff2'),
+  url('roboto-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: url('ubuntumono-webfont.woff2') format('woff2'),
+  url('ubuntumono-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Sudo';
+  src: url('sudo-webfont.woff2') format('woff2'),
+  url('sudo-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('sourcecodepro-webfont.woff2') format('woff2'),
+  url('sourcecodepro-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Consolas';
+  src: url('consolas-webfont.woff2') format('woff2'),
+  url('consolas-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}

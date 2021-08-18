@@ -6,7 +6,7 @@ import HandleFiles from './handleFiles';
 import {useConfig} from '../hooks';
 
 export default function Sidebar({open}) {
-  const [,setConfig] = useConfig();
+  const [config,setConfig] = useConfig();
   const style = {
     display: open?'block':'none'
   };
@@ -15,14 +15,25 @@ export default function Sidebar({open}) {
     function click() {
       setConfig({theme: item});
     }
-    return <MakeItem item={item} key={item} click={click} />
+    return <MakeItem item={item} key={item} click={click} match={config.theme}/>
   }
   
   function renderBinding(item) {
     function click() {
       setConfig({keyboardHandler: item});
     }
-    return <MakeItem item={item} key={item} click={click} />
+    return <MakeItem item={item} key={item} click={click} match={config.keyboardHandler} />
+  }
+  
+  function renderFonts(item) {
+    function click() {
+      setConfig({
+        style: {
+          fontFamily: item
+        }
+      });
+    }
+    return <MakeItem item={item} key={item} click={click} match={config.style.fontFamily} />
   }
   
   return (
@@ -30,14 +41,31 @@ export default function Sidebar({open}) {
       <Tab caption="Files" childs={4}>
         <HandleFiles />
       </Tab>
-      <Tab caption="Settings" childs={7}>
-        <Input label="Font Size" value={14} />
-        <Input label="Tab Size" value={4} />
-        <Switch label="Code Autocompletion" enabled />
-        <Switch label="Code Snippets" enabled />
-        <Switch label="Highlight Active Line" enabled />
-        <Switch label="Line Numbers" enabled />
-        <Switch label="Wrap Lines" />
+      <Tab caption="Settings" childs={8}>
+        <Input 
+          label="Font Size" 
+          labelFor="fontSize" />
+        <Input 
+          label="Tab Size" 
+          labelFor="tabSize" />
+        <Switch 
+          label="Basic Autocompletion" 
+          labelFor="enableBasicAutocompletion" />
+        <Switch 
+          label="Live Autocompletion" 
+          labelFor="enableLiveAutocompletion" />
+        <Switch 
+          label="Code Snippets" 
+          labelFor="enableSnippets" />
+        <Switch 
+          label="Highlight Active Line" 
+          labelFor="highlightActiveLine" />
+        <Switch 
+          label="Show Line Numbers" 
+          labelFor="showGutter" />
+        <Switch 
+          label="Wrap Lines" 
+          labelFor="wrapEnabled" />
       </Tab>
       <Tab caption="Themes" childs={AllThemes.length}>
         {AllThemes.map(renderThemes)}
@@ -46,17 +74,28 @@ export default function Sidebar({open}) {
         {keyBindings.map(renderBinding)}
       </Tab>
       <Tab caption="Font Family" childs={fontfamilies.length}>
-        {fontfamilies.map(item=>{
-          return <MakeItem item={item} key={item} click={()=>{}} />
-        })}
+        {fontfamilies.map(renderFonts)}
       </Tab>
     </div>
   )
 }
 
-function MakeItem({item,click}) {
+function MakeItem({item,click,match}) {
+  
+  let name = match===item?'selected':'';
+  
+  function After() {
+    if (match===item) {
+      return <span>&#9745;</span>; 
+    }
+    return "";
+  }
+  
   return (
-    <p onClick={click}>{item}</p>
+    <p onClick={click}
+      className={name}>
+      {item}&nbsp;&nbsp;<After/>
+    </p>
   )
 }
 
@@ -72,17 +111,18 @@ const keyBindings = [
 const fontfamilies = [
   "Apercu Mono",
   "Consolas",
+  "Courier Prime Code",
   "Dank Mono",
   "Droid Sans",
   "Fira Code",
-  "Gintronic",
   "Hack",
-  "Input Mono",
   "Monoid",
-  "MonoLisa",
-  "Press Start 2P",
+  "Monolisa",
+  "Noto Mono",
+  "Open Sans",
+  "Press Start 2p",
   "Roboto",
-  "Source Code",
+  "Source Code Pro",
   "Sudo",
   "Ubuntu Mono"
 ]
