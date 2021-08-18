@@ -9,6 +9,7 @@
   background-color: var(--sidebar);
   padding: 20px 10px;
   overflow-y: scroll;
+  display: none;
 }
 
 .tab {

@@ -7,13 +7,18 @@ import "./App.css";
 export default function App() {
   let [lang,setLang] = useState("c_cpp");
   let [theme,setTheme] = useState("monokai");
+  let [open,setOpen] = useState(false);
+  
+  function toggle() {
+    setOpen(old=>!old);
+  }
   
   return (
     <div className="App">
       <div className="editor-wrapper">
         <Editor lang={lang} theme={theme}/>
       </div>
-      <Sidebar />
+      <Sidebar open={open}/>
       
       {/*Unwanted*/}
       <h3>Some Langs</h3>
@@ -31,6 +36,9 @@ export default function App() {
       <button onClick={()=>setTheme("monokai")}>Monokai</button>
       <button onClick={()=>setTheme("dracula")}>Dracula</button>
       <button onClick={()=>setTheme("terminal")}>Terminal</button>
+      
+      <br />
+      <button onClick={toggle}>Sidebar</button>  
     </div>
   );
 }

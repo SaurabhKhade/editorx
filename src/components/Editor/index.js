@@ -1,6 +1,6 @@
 import React from "react";
 import Ace from "react-ace";
-
+import {useConfig} from '../hooks';
 
 // for actual code, skip to end of this page
 // Ace Modes
@@ -192,14 +192,13 @@ import "ace-builds/src-noconflict/ext-keybinding_menu";
 
 
 // Actual Code
-export default function Editor( {
-  lang, theme
-}) {
+export default function Editor( {lang}) {
+  let [config] = useConfig();
   return (
     <Ace
       placeholder="Placeholder Text"
       mode={lang}
-      theme={theme}
+      theme="monokai"
       onChange={()=> {}}
       fontSize={14}
       showPrintMargin={true}
@@ -208,12 +207,11 @@ export default function Editor( {
       keyboardHandler="vscode"
       width="100%"
       height="100%"
-      setOptions={ {
-        enableBasicAutocompletion: true,
-        enableLiveAutocompletion: true,
-        enableSnippets: true,
-        tabSize: 2
-      }}
+      enableBasicAutocompletion={true}
+      enableLiveAutocompletion={true}
+      enableSnippets={true}
+      tabSize={2}
+      {...config}
       editorProps={ { $blockScrolling: true }} />
   );
 }
