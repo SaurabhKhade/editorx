@@ -6,16 +6,16 @@ import React, {
 
 export default ContextProvider;
 export const editorContext = createContext();
+export const filesContext = createContext();
 
 function EditorContext({children}) {
   const [config,setConfig] = useState(defaultConfig);
   useEffect(()=>{
     let saved = localStorage.getItem("editorConfig");
-    if (!saved) {
-      saved = JSON.stringify(defaultConfig);
+    if (saved) {
+      saved = JSON.parse(saved);
+      setConfig(saved);
     }
-    saved = JSON.parse(saved);
-    setConfig(saved);
   },[]);
   
   return (
@@ -25,27 +25,41 @@ function EditorContext({children}) {
   );
 }
 
-function ContextProvider( {
-  children
-}) {
+function FilesContext({children}) {
+  const [files,setFiles] = useState({});
+  const [loadedFile,setLoadedFile] = useState(undefined);
+  
+  useEffect(()=>{
+    let saved = localStorage.getItem("userFiles");
+    if (saved) {
+      saved = JSON.parse(saved);
+      setFiles(saved);
+    }
+  },[]);
+  
+  return (
+    <filesContext.Provider value={[files,setFiles,loadedFile,setLoadedFile]}>
+      {children}
+    </filesContext.Provider>
+  );
+}
+
+function ContextProvider({children}) {
   return (
     <EditorContext>
-      {children} 
+      <FilesContext>
+        {children}  
+      </FilesContext>
     </EditorContext>
   )
 }
 
 const defaultConfig = {
-  placeholder: "Start to write your code here...",
   theme: "monokai",
-  onChange: ()=> {},
   fontSize: 14,
-  showPrintMargin: true,
   showGutter: true,
   highlightActiveLine: true,
   keyboardHandler: "vscode",
-  width: "100%",
-  height: "100%",
   enableBasicAutocompletion: true,
   enableLiveAutocompletion: true,
   enableSnippets: true,

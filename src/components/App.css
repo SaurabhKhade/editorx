@@ -12,9 +12,17 @@ html {
   --switch: hsl(209.7,100%,50%);
   --selected: orange;
 }
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
 
 * {
   box-sizing: border-box;
+}
+*:active,*:hover,*:focus {
+  outline: none;
+  tap-highlight-color: transparent;
 }
 
 .editor-wrapper {

@@ -192,13 +192,18 @@ import "ace-builds/src-noconflict/ext-keybinding_menu";
 
 
 // Editor Code
-export default function Editor( {lang}) {
+export default function Editor({lang}) {
   let [config] = useConfig();
   return (
     <Ace
-      mode={lang}
       {...config}
-      editorProps={{$blockScrolling:true}}
+      mode = {lang}
+      width = "100%"
+      height = "100%"
+      placeholder = "Start to write your code here..."
+      showPrintMargin = {true}
+      onChange = {()=> {}}
+      editorProps = {{$blockScrolling:true}}
       />
   );
 }

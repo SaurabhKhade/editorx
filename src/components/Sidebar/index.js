@@ -4,9 +4,11 @@ import Switch from './switch';
 import Input from './input';
 import HandleFiles from './handleFiles';
 import {useConfig} from '../hooks';
+import {useState} from 'react';
 
 export default function Sidebar({open}) {
   const [config,setConfig] = useConfig();
+  const [childs,setChilds] = useState(0);
   const style = {
     display: open?'block':'none'
   };
@@ -38,8 +40,8 @@ export default function Sidebar({open}) {
   
   return (
     <div className="sidebar" style={style}>
-      <Tab caption="Files" childs={4}>
-        <HandleFiles />
+      <Tab caption="Files" childs={childs}>
+        <HandleFiles setChilds={setChilds}/>
       </Tab>
       <Tab caption="Settings" childs={8}>
         <Input 

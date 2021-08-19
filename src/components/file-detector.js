@@ -1,448 +1,507 @@
 export default detector;
 
-  // Languages
-  const actionscript = {
-    language: "actionscript",
-    logo: "/languages/actionscript.png"
-  }
-  const applescript = {
-    language: "applescript",
-    logo: "/languages/applescript.png"
-  }
-  const assembly = {
-    language: "assembly_x86",
-    logo: "/languages/assembly.png"
-  }
-  const batch = {
-    language: "batchfile",
-    logo: "/languages/batch.png"
-  }
-  const c = {
-    language: "c_cpp",
-    logo: "/languages/c.png"
-  }
-  const cpp = {
-    language: "c_cpp",
-    logo: "/languages/cpp.png"
-  }
-  const clojure = {
-    language: "clojure",
-    logo: "/languages/clojure.png"
-  }
-  const cobol = {
-    language: "cobol",
-    logo: "/languages/cobol.png"
-  }
-  const coffee = {
-    language: "coffee",
-    logo: "/languages/coffee.png"
-  }
-  const csharp = {
-    language: "csharp",
-    logo: "/languages/csharp.png"
-  }
-  const css = {
-    language: "css",
-    logo: "/languages/css.png"
-  }
-  const dart = {
-    language: "dart",
-    logo: "/languages/dart.png"
-  }
-  const dockerfile = {
-    language: "dockerfile",
-    logo: "/languages/dockerfile.png"
-  }
-  const dot = {
-    language: "dot",
-    logo: "/languages/dot.png"
-  }
-  const javascript = {
-    language: "javascript",
-    logo: "/languages/javascript.png"
-  }
-  const fortran = {
-    language: "fortran",
-    logo: "/languages/fortran.png"
-  }
-  const fsharp = {
-    language: "fsharp",
-    logo: "/languages/fsharp.png"
-  }
-  const gitignore = {
-    language: "gitignore",
-    logo: "/languages/git.png"
-  }
-  const go = {
-    language: "golang",
-    logo: "/languages/go.png"
-  }
-  const graphql = {
-    language: "graphqlschema",
-    logo: "/languages/graphql.png"
-  }
-  const groovy = {
-    language: "groovy",
-    logo: "/languages/groovy.png"
-  }
-  const haml = {
-    language: "haml",
-    logo: "/languages/haml.png"
-  }
-  const haskell = {
-    language: "haskell",
-    logo: "/languages/haskell.png"
-  }
-  const html = {
-    language: "html",
-    logo: "/languages/html.png"
-  }
-  const jade = {
-    language: "jade",
-    logo: "/languages/jade.png"
-  }
-  const java = {
-    language: "java",
-    logo: "/languages/java.png"
-  }
-  const json = {
-    language: "json",
-    logo: "/languages/json.png"
-  }
-  const jsp = {
-    language: "jsp",
-    logo: "/languages/jsp.png"
-  }
-  const jsx = {
-    language: "jsx",
-    logo: "/languages/javascript.png"
-  }
-  const julia = {
-    language: "julia",
-    logo: "/languages/julia.png"
-  }
-  const kotlin = {
-    language: "kotlin",
-    logo: "/languages/kotlin.png"
-  }
-  const latex = {
-    language: "latex",
-    logo: "/languages/latex.png"
-  }
-  const less = {
-    language: "less",
-    logo: "/languages/less.png"
-  }
-  const livescript = {
-    language: "livescript",
-    logo: "/languages/livescript.png"
-  }
-  const lua = {
-    language: "lua",
-    logo: "/languages/lua.png"
-  }
-  const markdown = {
-    language: "markdown",
-    logo: "/languages/markdown.png"
-  }
-  const matlab = {
-    language: "matlab",
-    logo: "/languages/matlab.png"
-  }
-  const objectivec = {
-    language: "objectivec",
-    logo: "/languages/objectivec.png"
-  }
-  const pascal = {
-    language: "pascal",
-    logo: "/languages/pascal.png"
-  }
-  const perl = {
-    language: "perl",
-    logo: "/languages/perl.png"
-  }
-  const php = {
-    language: "php",
-    logo: "/languages/php.png"
-  }
-  const plain_text = {
-    language: "plain_text",
-    logo: "/languages/plain_text.png"
-  }
-  const powershell = {
-    language: "powershell",
-    logo: "/languages/powershell.png"
-  }
-  const python = {
-    language: "python",
-    logo: "/languages/python.png"
-  }
-  const r = {
-    language: "r",
-    logo: "/languages/r.png"
-  }
-  const ruby = {
-    language: "ruby",
-    logo: "/languages/ruby.png"
-  }
-  const rust = {
-    language: "rust",
-    logo: "/languages/rust.png"
-  }
-  const sass = {
-    language: "sass",
-    logo: "/languages/sass.png"
-  }
-  const scss = {
-    language: "scss",
-    logo: "/languages/scss.png"
-  }
-  const scala = {
-    language: "scala",
-    logo: "/languages/scala.png"
-  }
-  const sql = {
-    language: "sql",
-    logo: "/languages/sql.png"
-  }
-  const sqlserver = {
-    language: "sqlserver",
-    logo: "/languages/sqlserver.png"
-  }
-  const stylus = {
-    language: "stylus",
-    logo: "/languages/stylus.png"
-  }
-  const svg = {
-    language: "svg",
-    logo: "/languages/svg.png"
-  }
-  const swift = {
-    language: "swift",
-    logo: "/languages/swift.png"
-  }
-  const tsx = {
-    language: "tsx",
-    logo: "/languages/typescript.png"
-  }
-  const typescript = {
-    language: "typescript",
-    logo: "/languages/typescript.png"
-  }
-  const vbscript = {
-    language: "vbscript",
-    logo: "/languages/vbscript.png"
-  }
-  const xml = {
-    language: "xml",
-    logo: "/languages/xml.png"
-  }
-  const xquery = {
-    language: "xquery",
-    logo: "/languages/xquery.png"
-  }
-  const yaml = {
-    language: "yaml",
-    logo: "/languages/yaml.png"
-  }
+// Languages
+const actionscript = {
+  language: "actionscript",
+  logo: "/static/languages/actionscript.png",
+  placeholder: "Write your actionscript script here..."
+}
+const applescript = {
+  language: "applescript",
+  logo: "/static/languages/applescript.png",
+  placeholder: "Write your applescript script here..."
+}
+const assembly = {
+  language: "assembly_x86",
+  logo: "/static/languages/assembly.png",
+  placeholder: "Write your assembly code here..."
+}
+const batch = {
+  language: "batchfile",
+  logo: "/static/languages/batch.png",
+  placeholder: "Write your batch code here..."
+}
+const c = {
+  language: "c_cpp",
+  logo: "/static/languages/c.png",
+  placeholder: "Write your c language code here..."
+}
+const cpp = {
+  language: "c_cpp",
+  logo: "/static/languages/cpp.png",
+  placeholder: "Write your c++ code here..."
+}
+const clojure = {
+  language: "clojure",
+  logo: "/static/languages/clojure.png",
+  placeholder: "Write your clojure code here..."
+}
+const cobol = {
+  language: "cobol",
+  logo: "/static/languages/cobol.png",
+  placeholder: "Write your cobol code here..."
+}
+const coffee = {
+  language: "coffee",
+  logo: "/static/languages/coffee.png",
+  placeholder: "Write your coffee script here..."
+}
+const csharp = {
+  language: "csharp",
+  logo: "/static/languages/csharp.png",
+  placeholder: "Write your c# code here..."
+}
+const css = {
+  language: "css",
+  logo: "/static/languages/css.png",
+  placeholder: "Write your css style here..."
+}
+const dart = {
+  language: "dart",
+  logo: "/static/languages/dart.png",
+  placeholder: "Write your dart code here..."
+}
+const dockerfile = {
+  language: "dockerfile",
+  logo: "/static/languages/dockerfile.png",
+  placeholder: "Write your dockerfile code here..."
+}
+const dot = {
+  language: "dot",
+  logo: "/static/languages/dot.png",
+  placeholder: "Write your dot code here..."
+}
+const javascript = {
+  language: "javascript",
+  logo: "/static/languages/javascript.png",
+  placeholder: "Write your javascript script here..."
+}
+const fortran = {
+  language: "fortran",
+  logo: "/static/languages/fortran.png",
+  placeholder: "Write your fortran code here..."
+}
+const fsharp = {
+  language: "fsharp",
+  logo: "/static/languages/fsharp.png",
+  placeholder: "Write your f# code here..."
+}
+const gitignore = {
+  language: "gitignore",
+  logo: "/static/languages/git.png",
+  placeholder: "Write your gitignore files here..."
+}
+const go = {
+  language: "golang",
+  logo: "/static/languages/go.png",
+  placeholder: "Write your golang code here..."
+}
+const graphql = {
+  language: "graphqlschema",
+  logo: "/static/languages/graphql.png",
+  placeholder: "Write your graphql schema here..."
+}
+const groovy = {
+  language: "groovy",
+  logo: "/static/languages/groovy.png",
+  placeholder: "Write your groovy code here..."
+}
+const haml = {
+  language: "haml",
+  logo: "/static/languages/haml.png",
+  placeholder: "Write your haml markup here..."
+}
+const haskell = {
+  language: "haskell",
+  logo: "/static/languages/haskell.png",
+  placeholder: "Write your haskell code here..."
+}
+const html = {
+  language: "html",
+  logo: "/static/languages/html.png",
+  placeholder: "Write your html markup here..."
+}
+const jade = {
+  language: "jade",
+  logo: "/static/languages/jade.png",
+  placeholder: "Write your pug template here..."
+}
+const java = {
+  language: "java",
+  logo: "/static/languages/java.png",
+  placeholder: "Write your java code here..."
+}
+const json = {
+  language: "json",
+  logo: "/static/languages/json.png",
+  placeholder: "Write your json data here..."
+}
+const jsp = {
+  language: "jsp",
+  logo: "/static/languages/jsp.png",
+  placeholder: "Write your jsp code here..."
+}
+const jsx = {
+  language: "jsx",
+  logo: "/static/languages/javascript.png",
+  placeholder: "Write your reactjs code here..."
+}
+const julia = {
+  language: "julia",
+  logo: "/static/languages/julia.png",
+  placeholder: "Write your julia code here..."
+}
+const kotlin = {
+  language: "kotlin",
+  logo: "/static/languages/kotlin.png",
+  placeholder: "Write your kotlin code here..."
+}
+const latex = {
+  language: "latex",
+  logo: "/static/languages/latex.png",
+  placeholder: "Write your latex code here..."
+}
+const less = {
+  language: "less",
+  logo: "/static/languages/less.png",
+  placeholder: "Write your less style here..."
+}
+const livescript = {
+  language: "livescript",
+  logo: "/static/languages/livescript.png",
+  placeholder: "Write your livescript script here..."
+}
+const lua = {
+  language: "lua",
+  logo: "/static/languages/lua.png",
+  placeholder: "Write your lua code here..."
+}
+const markdown = {
+  language: "markdown",
+  logo: "/static/languages/markdown.png",
+  placeholder: "Write your markdown here..."
+}
+const matlab = {
+  language: "matlab",
+  logo: "/static/languages/matlab.png",
+  placeholder: "Write your matlab code here..."
+}
+const objectivec = {
+  language: "objectivec",
+  logo: "/static/languages/objectivec.png",
+  placeholder: "Write your objective-c code here..."
+}
+const pascal = {
+  language: "pascal",
+  logo: "/static/languages/pascal.png",
+  placeholder: "Write your pascal code here..."
+}
+const perl = {
+  language: "perl",
+  logo: "/static/languages/perl.png",
+  placeholder: "Write your perl code here..."
+}
+const php = {
+  language: "php",
+  logo: "/static/languages/php.png",
+  placeholder: "Write your php code here..."
+}
+const plain_text = {
+  language: "plain_text",
+  logo: "/static/languages/plain_text.png",
+  placeholder: "Write your text here..."
+}
+const powershell = {
+  language: "powershell",
+  logo: "/static/languages/powershell.png",
+  placeholder: "Write your powershell code here..."
+}
+const python = {
+  language: "python",
+  logo: "/static/languages/python.png",
+  placeholder: "Write your python code here..."
+}
+const r = {
+  language: "r",
+  logo: "/static/languages/r.png",
+  placeholder: "Write your r language code here..."
+}
+const ruby = {
+  language: "ruby",
+  logo: "/static/languages/ruby.png",
+  placeholder: "Write your ruby code here..."
+}
+const rust = {
+  language: "rust",
+  logo: "/static/languages/rust.png",
+  placeholder: "Write your rust code here..."
+}
+const sass = {
+  language: "sass",
+  logo: "/static/languages/sass.png",
+  placeholder: "Write your sass style here..."
+}
+const scss = {
+  language: "scss",
+  logo: "/static/languages/scss.png",
+  placeholder: "Write your scss style here..."
+}
+const scala = {
+  language: "scala",
+  logo: "/static/languages/scala.png",
+  placeholder: "Write your scala code here..."
+}
+const sql = {
+  language: "sql",
+  logo: "/static/languages/sql.png",
+  placeholder: "Write your sql query here..."
+}
+const sqlserver = {
+  language: "sqlserver",
+  logo: "/static/languages/sqlserver.png",
+  placeholder: "Write your sqlserver query here..."
+}
+const stylus = {
+  language: "stylus",
+  logo: "/static/languages/stylus.png",
+  placeholder: "Write your stylus style here..."
+}
+const svg = {
+  language: "svg",
+  logo: "/static/languages/svg.png",
+  placeholder: "Write your svg markup here..."
+}
+const swift = {
+  language: "swift",
+  logo: "/static/languages/swift.png",
+  placeholder: "Write your swift code here..."
+}
+const tsx = {
+  language: "tsx",
+  logo: "/static/languages/typescript.png",
+  placeholder: "Write your reactts code here..."
+}
+const typescript = {
+  language: "typescript",
+  logo: "/static/languages/typescript.png",
+  placeholder: "Write your typescript script here..."
+}
+const vbscript = {
+  language: "vbscript",
+  logo: "/static/languages/vbscript.png",
+  placeholder: "Write your vbscript script here..."
+}
+const xml = {
+  language: "xml",
+  logo: "/static/languages/xml.png",
+  placeholder: "Write your xml markup here..."
+}
+const xquery = {
+  language: "xquery",
+  logo: "/static/languages/xquery.png",
+  placeholder: "Write your xquery code here..."
+}
+const yaml = {
+  language: "yaml",
+  logo: "/static/languages/yaml.png",
+  placeholder: "Write your yaml markup here..."
+}
 
 
-  // language-extension mapper
+// language-extension mapper
 
-  const mapper = {
-    actionscript,
-    as: actionscript,
-    applescript,
-    scpt: applescript,
-    scptd: applescript,
-    applescript: applescript,
-    assembly,
-    asm: assembly,
-    s: assembly,
-    batch,
-    bat: batch,
-    cmd: batch,
-    btm: batch,
-    c,
-    h: c,
-    C: c,
-    H: c,
-    cpp,
-    cxx: cpp,
-    cc: cpp,
-    "c++": cpp,
-    hh: cpp,
-    hpp: cpp,
-    hxx: cpp,
-    "h++": cpp,
-    clojure,
-    clj: clojure,
-    cljs: clojure,
-    cljc: clojure,
-    edn: clojure,
-    cobol,
-    cbl: cobol,
-    cob: cobol,
-    cpy: cobol,
-    coffee,
-    litcoffee: coffee,
-    csharp,
-    "c#": csharp,
-    cs: csharp,
-    csx: csharp,
-    css,
-    dart,
-    dockerfile,
-    dot,
-    gv: dot,
-    ejs: javascript,
-    fortran,
-    f: fortran,
-    for: fortran,
-    f90: fortran,
-    fsharp,
-    fs: fsharp,
-    fsi: fsharp,
-    fsx: fsharp,
-    fsscript: fsharp,
-    gitignore,
-    go,
-    graphql,
-    graphqlschema: graphql,
-    groovy,
-    gvy: groovy,
-    gy: groovy,
-    gsh: groovy,
-    haml,
-    haskell,
-    hs: haskell,
-    lhs: haskell,
-    html,
-    htm: html,
-    jade,
-    pug: jade,
-    java,
-    class: java,
-    jar: java,
-    javascript,
-    js: javascript,
-    cjs: javascript,
-    mjs: javascript,
-    json,
-    jsp,
-    jspx: jsp,
-    jspf: jsp,
-    jsx,
-    julia,
-    jl: julia,
-    kotlin,
-    kt: kotlin,
-    kts: kotlin,
-    ktm: kotlin,
-    latex,
-    tex: latex,
-    less,
-    livescript,
-    ls: livescript,
-    lua,
-    markdown,
-    md: markdown,
-    matlab,
-    m: matlab,
-    p: matlab,
-    mex: matlab,
-    mat: matlab,
-    fig: matlab,
-    mlx: matlab,
-    mlapp: matlab,
-    mltbx: matlab,
-    mlappinstall: matlab,
-    mlpkginstall: matlab,
-    objectivec,
-    m: objectivec,
-    mm: objectivec,
-    M: objectivec,
-    pascal,
-    pp: pascal,
-    pas: pascal,
-    inc: pascal,
-    perl,
-    plx: perl,
-    pl: perl,
-    pm: perl,
-    xs: perl,
-    t: perl,
-    pod: perl,
-    php,
-    phar: php,
-    phtml: php,
-    phtm: php,
-    phps: php,
-    txt: plain_text,
-    dat: plain_text,
-    powershell,
-    ps1: powershell,
-    ps1xml: powershell,
-    psc1: powershell,
-    psd1: powershell,
-    psm1: powershell,
-    pssc: powershell,
-    psrc: powershell,
-    cdxml: powershell,
-    python,
-    py: python,
-    pyi: python,
-    pyc: python,
-    pyd: python,
-    pyo: python,
-    pyw: python,
-    pyz: python,
-    r,
-    rdata: r,
-    rds: r,
-    rda: r,
-    ruby,
-    rb: ruby,
-    rust,
-    rs: rust,
-    rlib: rust,
-    sass,
-    scala,
-    sc: scala,
-    scss,
-    sql,
-    sqlserver,
-    stylus,
-    styl: stylus,
-    svg,
-    swift,
-    SWIFT: swift,
-    text: plain_text,
-    tsx,
-    typescript,
-    ts: typescript,
-    vbscript,
-    vb: vbscript,
-    vbs: vbscript,
-    vbe: vbscript,
-    wsf: vbscript,
-    wsc: vbscript,
-    asp: vbscript,
-    hta: vbscript,
-    xml,
-    xquery,
-    xq: xquery,
-    xql: xquery,
-    xqm: xquery,
-    xqy: xquery,
-    yaml,
-    yml: yaml
-  }
+const mapper = {
+  actionscript,
+  as: actionscript,
+  applescript,
+  scpt: applescript,
+  scptd: applescript,
+  assembly,
+  asm: assembly,
+  s: assembly,
+  batch,
+  bat: batch,
+  cmd: batch,
+  btm: batch,
+  c,
+  h: c,
+  C: c,
+  H: c,
+  cpp,
+  cxx: cpp,
+  cc: cpp,
+  "c++": cpp,
+  hh: cpp,
+  hpp: cpp,
+  hxx: cpp,
+  "h++": cpp,
+  clojure,
+  clj: clojure,
+  cljs: clojure,
+  cljc: clojure,
+  edn: clojure,
+  cobol,
+  cbl: cobol,
+  cob: cobol,
+  cpy: cobol,
+  coffee,
+  litcoffee: coffee,
+  csharp,
+  "c#": csharp,
+  cs: csharp,
+  csx: csharp,
+  css,
+  dart,
+  dockerfile,
+  dot,
+  gv: dot,
+  ejs: javascript,
+  fortran,
+  f: fortran,
+  for: fortran,
+  f90: fortran,
+  fsharp,
+  fs: fsharp,
+  fsi: fsharp,
+  fsx: fsharp,
+  fsscript: fsharp,
+  gitignore,
+  go,
+  graphql,
+  graphqlschema: graphql,
+  groovy,
+  gvy: groovy,
+  gy: groovy,
+  gsh: groovy,
+  haml,
+  haskell,
+  hs: haskell,
+  lhs: haskell,
+  html,
+  htm: html,
+  jade,
+  pug: jade,
+  java,
+  class: java,
+  jar: java,
+  javascript,
+  js: javascript,
+  cjs: javascript,
+  mjs: javascript,
+  json,
+  jsp,
+  jspx: jsp,
+  jspf: jsp,
+  jsx,
+  julia,
+  jl: julia,
+  kotlin,
+  kt: kotlin,
+  kts: kotlin,
+  ktm: kotlin,
+  latex,
+  tex: latex,
+  less,
+  livescript,
+  ls: livescript,
+  lua,
+  markdown,
+  md: markdown,
+  matlab,
+  p: matlab,
+  mex: matlab,
+  mat: matlab,
+  fig: matlab,
+  mlx: matlab,
+  mlapp: matlab,
+  mltbx: matlab,
+  mlappinstall: matlab,
+  mlpkginstall: matlab,
+  objectivec,
+  m: objectivec,
+  mm: objectivec,
+  M: objectivec,
+  pascal,
+  pp: pascal,
+  pas: pascal,
+  inc: pascal,
+  perl,
+  plx: perl,
+  pl: perl,
+  pm: perl,
+  xs: perl,
+  t: perl,
+  pod: perl,
+  php,
+  phar: php,
+  phtml: php,
+  phtm: php,
+  phps: php,
+  txt: plain_text,
+  dat: plain_text,
+  powershell,
+  ps1: powershell,
+  ps1xml: powershell,
+  psc1: powershell,
+  psd1: powershell,
+  psm1: powershell,
+  pssc: powershell,
+  psrc: powershell,
+  cdxml: powershell,
+  python,
+  py: python,
+  pyi: python,
+  pyc: python,
+  pyd: python,
+  pyo: python,
+  pyw: python,
+  pyz: python,
+  r,
+  rdata: r,
+  rds: r,
+  rda: r,
+  ruby,
+  rb: ruby,
+  rust,
+  rs: rust,
+  rlib: rust,
+  sass,
+  scala,
+  sc: scala,
+  scss,
+  sql,
+  sqlserver,
+  stylus,
+  styl: stylus,
+  svg,
+  swift,
+  SWIFT: swift,
+  text: plain_text,
+  tsx,
+  typescript,
+  ts: typescript,
+  vbscript,
+  vb: vbscript,
+  vbs: vbscript,
+  vbe: vbscript,
+  wsf: vbscript,
+  wsc: vbscript,
+  asp: vbscript,
+  hta: vbscript,
+  xml,
+  xquery,
+  xq: xquery,
+  xql: xquery,
+  xqm: xquery,
+  xqy: xquery,
+  yaml,
+  yml: yaml
+}
 
 
-  // Get extension from file name
-  function detector(file) {
-    let split = file.split(".");
-    let extension = split[split.length-1];
-    return mapper[extension]?mapper[extension]: mapper["txt"];
-  }
+// Get extension from file name
+function detector(file) {
+  let split = file.split(".");
+  let extension = split[split.length-1];
+  return mapper[extension]?mapper[extension]: mapper["txt"];
+}
