@@ -1,10 +1,13 @@
 import {useEffect,useState} from 'react';
-import {useFileSystem} from '../hooks';
+import {useFileSystem,usePopup} from '../hooks';
+import {IoSettingsSharp} from 'react-icons/io5';
 import './file-system.css';
 
 export default function HandleFiles({setChilds}) {
   
   const system = useFileSystem();
+  const [,setPopup] = usePopup();
+  
   useEffect(()=>{
     let childs = Object.keys(system.files).length;
     setChilds(childs+1);
@@ -14,7 +17,13 @@ export default function HandleFiles({setChilds}) {
   return (
     <>
       <CreateFiles create={system.addFile}/>
-      {Object.keys(system.files).map(item=><MakeItem key={item} file={item} files={system.files} loader={system.setLoadedFile} />)}
+      {Object.keys(system.files).map(item=><MakeItem 
+            key={item} 
+            file={item} 
+            files={system.files} 
+            loader={system.setLoadedFile}
+            setPopup={setPopup}/>
+      )}
     </>
   )
 }
@@ -60,7 +69,7 @@ function CreateFiles({create}) {
   );
 }
 
-function MakeItem({file,files,loader}) {
+function MakeItem({file,files,loader,setPopup}) {
   
   return (
     <div className="file-name">
@@ -68,7 +77,9 @@ function MakeItem({file,files,loader}) {
         <img src={process.env.PUBLIC_URL +files[file].logo} alt={files[file].language}/>
         <p>{file}</p>
       </div>
-      <span>&#9881;</span>
+      <span onClick={()=>setPopup(file)}>
+        <IoSettingsSharp />
+      </span>
     </div>
   );
 }

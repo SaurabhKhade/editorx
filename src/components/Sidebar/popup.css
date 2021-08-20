@@ -1,0 +1,81 @@
+.popup {
+  background-color: white;
+  /* border: 1px solid red; */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  z-index: 50;
+  padding: 10px 10px;
+  min-width: 250px;
+  
+  border-radius: 4px;
+  --out: 2px;
+  --out-n: -2px;
+  --spread: 0;
+  --blur: 4px;
+  box-shadow: 
+  var(--out) var(--out) var(--blur) var(--spread) grey, 
+  var(--out-n) var(--out-n) var(--blur) var(--spread) grey,
+  var(--out) var(--out-n) var(--blur) var(--spread) grey,
+  var(--out-n) var(--out) var(--blur) var(--spread) grey;
+  
+  
+  --btn: red;
+}
+
+.popup div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.popup h3 {
+  overflow-x: scroll;
+  text-align: center;
+}
+
+.popup button {
+  padding: .4em .5em;
+  margin: .2em;
+  font-size: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: var(--btn);
+  border: 1px solid var(--btn);
+  background-color: transparent;
+}
+
+.warn-btn {
+  --btn: hsl(33.7,100%,49.6%);
+}
+
+.download-btn {
+  --btn: hsl(206.7,100%,44.1%);
+}
+
+.close-btn {
+  --btn: rgb(19,173,10);
+}
+
+.rename {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.rename input {
+  aspect-ratio: 1/1;
+  height: 100%;
+  width: 100%;
+  border: 1px solid hsl(33.7,100%,49.6%);
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.rename button {
+  aspect-ratio: 1/1;
+  height: 100%;
+}

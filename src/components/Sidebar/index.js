@@ -4,6 +4,7 @@ import Tab from './tab';
 import Switch from './switch';
 import Input from './input';
 import HandleFiles from './handleFiles';
+import Popup from './popup';
 import {useConfig} from '../hooks';
 import {useState} from 'react';
 
@@ -12,7 +13,7 @@ export default function Sidebar({open}) {
   const [childs,setChilds] = useState(0);
   
   const style = {
-    display: open?'block':'none'
+    right: open?'0':'-301px'
   };
   
   function renderThemes(item) {
@@ -41,6 +42,8 @@ export default function Sidebar({open}) {
   }
   
   return (
+    <>
+    <Popup />
     <div className="sidebar" style={style}>
       <Tab caption="Files" childs={childs}>
         <HandleFiles setChilds={setChilds}/>
@@ -81,6 +84,7 @@ export default function Sidebar({open}) {
         {fontfamilies.map(renderFonts)}
       </Tab>
     </div>
+    </>
   )
 }
 

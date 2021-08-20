@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {editorContext,filesContext} from './context';
+import {editorContext,filesContext,popupContext} from './context';
 import detector from './file-detector';
 
 export function useConfig() {
@@ -12,6 +12,11 @@ export function useConfig() {
   }
   
   return [config,setFunction];
+}
+
+export function usePopup() {
+  const control = useContext(popupContext);
+  return control;
 }
 
 export function useFileSystem() {
@@ -44,7 +49,11 @@ export function useFileSystem() {
     setFiles(old=>{
       let file = old[oldName];
       delete old[oldName];
+      let {code,...rest} = makeFile(newName);
+      file = {...rest,code:file.code}
       old[newName] = file;
+      updateSource(old);
+      if(loadedFile===oldName) setLoadedFile(newName);
       return {...(sort(old))};
     });
   }
@@ -54,6 +63,7 @@ export function useFileSystem() {
       delete old[name];
       return {...old};
     });
+    if (name===loadedFile) setLoadedFile(undefined);
   }
   
   return {files,loadedFile,setLoadedFile,addFile,updateFile,renameFile,deleteFile};

@@ -7,6 +7,7 @@ import React, {
 export default ContextProvider;
 export const editorContext = createContext();
 export const filesContext = createContext();
+export const popupContext = createContext();
 
 function EditorContext({children}) {
   const [config,setConfig] = useState(defaultConfig);
@@ -44,11 +45,24 @@ function FilesContext({children}) {
   );
 }
 
+function PopupContext({children}) {
+  
+  const control = useState(undefined);
+  
+  return (
+    <popupContext.Provider value={control}>
+      {children}
+    </popupContext.Provider>
+  );
+}
+
 function ContextProvider({children}) {
   return (
     <EditorContext>
       <FilesContext>
-        {children}  
+        <PopupContext>
+          {children}  
+        </PopupContext>
       </FilesContext>
     </EditorContext>
   )

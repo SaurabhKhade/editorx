@@ -205,11 +205,9 @@ export default function Editor({language,placeholder,handleChange,code}) {
       value={code}
       {...config}
       editorProps = {{$blockScrolling:true}}
+      onLoad={()=>{
+        window.ace.config.set('basePath',`${process.env.PUBLIC_URL}/static/aceBuilds`);
+      }}
       />
   );
 }
-
-
-
-
-  // let languages = ["actionscript", "applescript", "assembly_x86", "batchfile", "c_cpp", "clojure", "cobol", "coffee", "csharp", "css", "dart", "django", "dockerfile", "dot", "ejs", "fortran", "fsharp", "gitignore", "golang", "graphqlschema", "groovy", "haml", "haskell", "haskell_cabal", "html", "jade", "java", "javascript", "json", "json5", "jsp", "jsx", "julia", "kotlin", "latex", "less", "livescript", "lua", "makefile", "markdown", "matlab", "mysql", "nginx", "objectivec", "pascal", "perl", "php", "plain_text", "powershell", "prisma", "python", "r", "redshift", "ruby", "rust", "sass", "scala", "scss","sql","sqlserver","stylus","svg","swift","tex","text","tsx","typescript","vbscript","xml","xquery","yaml"]
