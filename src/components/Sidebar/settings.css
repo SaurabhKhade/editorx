@@ -1,0 +1,44 @@
+.switch,.hasInput {
+  border: 1px solid var(--switch);
+  height: 75%;
+  aspect-ratio: 1/1;
+  border-radius: .1em;
+  display: grid;
+  place-items: center;
+  /* padding: .3em; */
+}
+
+.switch div {
+  height: 85%;
+  width: 85%;
+  background-color: var(--switch);
+}
+
+.selected {
+  color: var(--selected);
+}
+
+.hasInput {
+  border-color: var(--tab-bg);
+  padding: 0;
+}
+
+.hasInput input {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: transparent;
+  color: var(--sidebar-color);
+  border: none;
+  font-weight: bold;
+}
+
+.hasInput input::outer-spin-button,
+.hasInput input::inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.hasInput input {
+  appearance: textfield;
+}

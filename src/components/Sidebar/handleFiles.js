@@ -1,5 +1,6 @@
 import {useEffect,useState} from 'react';
 import {useFileSystem} from '../hooks';
+import './file-system.css';
 
 export default function HandleFiles({setChilds}) {
   
@@ -13,7 +14,7 @@ export default function HandleFiles({setChilds}) {
   return (
     <>
       <CreateFiles create={system.addFile}/>
-      {Object.keys(system.files).map(item=><MakeItem key={item} file={item} files={system.files} />)}
+      {Object.keys(system.files).map(item=><MakeItem key={item} file={item} files={system.files} loader={system.setLoadedFile} />)}
     </>
   )
 }
@@ -59,11 +60,11 @@ function CreateFiles({create}) {
   );
 }
 
-function MakeItem({file,files}) {
+function MakeItem({file,files,loader}) {
   
   return (
     <div className="file-name">
-      <div>
+      <div onClick={()=>{loader(file)}}>
         <img src={process.env.PUBLIC_URL +files[file].logo} alt={files[file].language}/>
         <p>{file}</p>
       </div>

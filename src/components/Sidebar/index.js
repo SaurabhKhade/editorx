@@ -1,4 +1,5 @@
 import './sidebar.css';
+import './settings.css';
 import Tab from './tab';
 import Switch from './switch';
 import Input from './input';
@@ -9,6 +10,7 @@ import {useState} from 'react';
 export default function Sidebar({open}) {
   const [config,setConfig] = useConfig();
   const [childs,setChilds] = useState(0);
+  
   const style = {
     display: open?'block':'none'
   };

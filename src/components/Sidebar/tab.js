@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import './tab.css';
 
 export default function Tab({caption,children,childs}) {
   

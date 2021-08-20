@@ -1,5 +1,6 @@
 html,body,#root {
   height: 100%;
+  min-height: 100%;
   margin: 0;
   padding: 0;
 }
@@ -27,5 +28,15 @@ html {
 
 .editor-wrapper {
   width: 100vw;
-  height: 100vmin;
+  height: 100%;
+}
+
+.no-file {
+  height: 100%;
+  padding: 10px 20px;
+}
+
+.no-file h1,h4 {
+  margin: 10px;
+  text-align: center;
 }

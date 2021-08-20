@@ -31,7 +31,7 @@ export function useFileSystem() {
   function updateFile(code) {
     if (loadedFile===undefined) return;
     let current = files[loadedFile];
-    current.code+=code;
+    current.code=code;
     
     setFiles(old=>{
       old[loadedFile] = current;

@@ -1,0 +1,65 @@
+.addFile > * {
+  width: 100%;
+  margin: 0;
+  height: 90%;
+  position: relative;
+}
+
+.addFile span {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.addFile input {
+  width: calc(100% - 80px);
+  height: 100%;
+  border: 1px solid var(--sidebar-color);
+  background-color: transparent;
+  color: var(--sidebar-color);
+  border-radius: 4px;
+}
+
+.addFile button {
+  width: 40px;
+  height: 100%;
+  border: 1px solid var(--sidebar-color);
+  background-color: transparent;
+  color: var(--sidebar-color);
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.file-name div {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  /* border: 1px solid yellow; */
+}
+
+.file-name p {
+  margin: 0;
+  overflow-x: auto;
+  user-select: none;
+}
+
+.file-name img {
+  height: 70%;
+  aspect-ratio: 1/1;
+  background-color: white;
+  /* display: flex; */
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.file-name span{
+  height: 100%;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  font-weight: bold;
+  /* border: 1px solid yellow; */
+}
