@@ -30,3 +30,7 @@
 .tab-hidden > div {
   justify-content: space-between;
 }
+
+.tab-item {
+  text-transform: capitalize;
+}

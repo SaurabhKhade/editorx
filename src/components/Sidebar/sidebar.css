@@ -10,3 +10,10 @@
   overflow-y: scroll;
   transition: right .2s ease;
 }
+
+@media screen and (min-width: 850px) {
+  .sidebar {
+    right: 0 !important;
+    font-size: 18px;
+  }
+}

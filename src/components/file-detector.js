@@ -22,11 +22,13 @@ const batch = {
   placeholder: "Write your batch code here..."
 }
 const c = {
+  name: "c",
   language: "c_cpp",
   logo: "/static/languages/c.png",
   placeholder: "Write your c language code here..."
 }
 const cpp = {
+  name: "cpp",
   language: "c_cpp",
   logo: "/static/languages/cpp.png",
   placeholder: "Write your c++ code here..."
@@ -47,6 +49,7 @@ const coffee = {
   placeholder: "Write your coffee script here..."
 }
 const csharp = {
+  name: "cs",
   language: "csharp",
   logo: "/static/languages/csharp.png",
   placeholder: "Write your c# code here..."
@@ -127,6 +130,7 @@ const jade = {
   placeholder: "Write your pug template here..."
 }
 const java = {
+  name: "java",
   language: "java",
   logo: "/static/languages/java.png",
   placeholder: "Write your java code here..."
@@ -152,6 +156,7 @@ const julia = {
   placeholder: "Write your julia code here..."
 }
 const kotlin = {
+  name: "kt",
   language: "kotlin",
   logo: "/static/languages/kotlin.png",
   placeholder: "Write your kotlin code here..."
@@ -217,6 +222,7 @@ const powershell = {
   placeholder: "Write your powershell code here..."
 }
 const python = {
+  name: "py",
   language: "python",
   logo: "/static/languages/python.png",
   placeholder: "Write your python code here..."
@@ -227,6 +233,7 @@ const r = {
   placeholder: "Write your r language code here..."
 }
 const ruby = {
+  name: "rb",
   language: "ruby",
   logo: "/static/languages/ruby.png",
   placeholder: "Write your ruby code here..."
@@ -272,6 +279,7 @@ const svg = {
   placeholder: "Write your svg markup here..."
 }
 const swift = {
+  name: "swift",
   language: "swift",
   logo: "/static/languages/swift.png",
   placeholder: "Write your swift code here..."

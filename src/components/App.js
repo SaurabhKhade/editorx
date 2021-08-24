@@ -1,6 +1,7 @@
 import Editor from './Editor';
 import {useState} from 'react';
 import Sidebar from './Sidebar';
+import Executer from './Executer';
 import {useFileSystem} from './hooks';
 import "./App.css";
 
@@ -15,6 +16,7 @@ export default function App() {
   
   return (
     <>
+      <Executer />
       <div className="editor-wrapper">
         {
           loadedFile?<Editor {...(files[loadedFile])} handleChange={updateFile}/>:

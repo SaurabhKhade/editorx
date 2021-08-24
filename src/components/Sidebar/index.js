@@ -98,11 +98,13 @@ function MakeItem({item,click,match}) {
     }
     return "";
   }
+
+  let label = item.split("_").join(" ");
   
   return (
     <p onClick={click}
-      className={name}>
-      {item}&nbsp;&nbsp;<After/>
+      className={`tab-item ${name}`}>
+      {label}&nbsp;&nbsp;<After/>
     </p>
   )
 }
