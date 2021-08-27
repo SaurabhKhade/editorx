@@ -42,9 +42,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build mini-project-sem5 || move build mini-project-sem5",
     "test": "react-scripts test",
-    "deploy": "gh-pages -b gh-pages -d build ",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -65,8 +64,5 @@
       "last 10 firefox version",
       "last 10 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.2.3"
   }
 }
