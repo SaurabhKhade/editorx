@@ -24,7 +24,7 @@
     border-radius: 5px;
     position: fixed;
     left: 50%;
-    top: 100px;
+    top: 30px;
     transform: translateX(-50%);
     z-index: 50;
     background-color: rgb(56, 46, 46);
