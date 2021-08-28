@@ -25,9 +25,9 @@ export default function Exec() {
         let payload = {
           code,language,input:stdin
         };
-        console.log("Here")
-        request(payload);
-        setOutput('waiting');
+        setOutput('waiting...');
+        request(payload)
+        .then(output=>setOutput(output));
     }
     
     return show?(
@@ -55,33 +55,24 @@ function whichLang(name) {
     return fileDetector(name).name;
 }
 
-function request(data) {
+async function request(data) {
   
-  console.log(data);
-  
-  // const url = "https://saurabhkhade.github.io";
-  const url = "http://codexweb.netlify.app/.netlify/functions/enforceCode";
-  // const url = "https://jsonplaceholder.typicode.com/posts";
+  const url = "https://editorx-api.vercel.app/execute";
   
   const config = {
     method: 'POST',
     url,
-    cors: 'no-cors',
     headers: { 
       'Content-Type': 'application/json'
     },
-    data: JSON.stringify(data)
+    data
   }
+
+  let res = await axios(config);
   
-  try {
-    axios(config)
-    .then(function (response) {
-      console.log("response"+response);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
-  } catch (e) {
-    console.error(e);
+  if(res.data.status === 'success') {
+    return res.data.output;
+  } else {
+    return res.data.message;
   }
 }
