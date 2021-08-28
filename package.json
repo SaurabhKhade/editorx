@@ -1,5 +1,4 @@
 {
-  "homepage": "https://saurabhkhade.github.io/mini-project-sem5",
   "name": "mini_project",
   "description": "This is a powerfull code editor based on acejs and has lot features like code autocompletion, code snippets, syntax highliting, keyboard shortcuts and lot more.",
   "version": "1.0.0",
@@ -42,7 +41,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build mini-project-sem5 || move build mini-project-sem5",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

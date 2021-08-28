@@ -6,7 +6,6 @@ import axios from "axios";
 import "./executer.css";
 
 export default function Exec() {
-  console.log("reload");
   const { files, loadedFile } = useFileSystem();
   const [show, setShow] = useState(true);
   const [inputBox, setInputBox] = useState(false);
@@ -49,11 +48,9 @@ export default function Exec() {
 }
 
 function whichLang(name) {
-  if (name === undefined) return;
-  return fileDetector(name).name;
+  if (name !== undefined) return fileDetector(name).name;
 }
 
-<<<<<<< HEAD
 async function request(data) {
   
   const url = "https://editorx-api.vercel.app/execute";
