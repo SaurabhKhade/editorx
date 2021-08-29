@@ -1,12 +1,23 @@
 .addFile > * {
   width: 100%;
   margin: 0;
-  height: 90%;
+  height: 95%;
+  cursor: pointer;
+}
+
+.addFile .label {
+  display: flex;
+  align-items: center;
   position: relative;
 }
 
-.addFile span {
+.addFile button {
+  cursor: pointer;
+}
+
+.addFile p {
   position: absolute;
+  margin: 0;
   top: 50%;
   transform: translateY(-50%);
 }

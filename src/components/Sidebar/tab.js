@@ -4,9 +4,9 @@ import './tab.css';
 export default function Tab({caption,children,childs}) {
   
   const [open,setOpen] = useState(false);
-  
+  const height = 40;
   const style = {
-    height: `${open?(40*(childs+1)):40}px`
+    height: `${open?(height*(childs+1)):height}px`
   }
   
   const arrow = {

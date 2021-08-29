@@ -11,6 +11,11 @@
 	"orientation": "portrait-primary",
 	"icons": [
 		{
+			"src": "/static/icon/android-icon-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		},
+		{
 			"src": "/static/icon/android-icon-192x192.png",
 			"type": "image/png",
 			"sizes": "192x192"
@@ -76,5 +81,5 @@
 			"sizes": "16x16"
 		}
 	],
-	"prefer_related_applications": "false"
+	"prefer_related_applications": false
 }

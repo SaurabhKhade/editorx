@@ -11,3 +11,12 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+if(process.env.NODE_ENV === 'production') {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+      navigator.serviceWorker
+        .register("/serviceWorker.js");
+    })
+  }
+}
