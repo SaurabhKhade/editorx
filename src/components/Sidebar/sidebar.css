@@ -11,6 +11,35 @@
   transition: right .2s ease;
 }
 
+.theme-toggle {
+  display: flex;
+  border: 1px solid red;
+  justify-content: flex-end;
+  color: var(--sidebar-color);
+  align-items: center;
+}
+
+.theme-toggle .wrapper {
+  height: 1.7em;
+  width: 3.2em;
+  padding: .1em;
+  border-radius: 999px;
+  border: 2px solid yellow;
+  margin: 0 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.theme-toggle .button {
+  position: absolute;
+  height: 1.3em;
+  width: 1.3em;
+  border-radius: 50%;
+  background-color: yellow;
+  transition: left .2s ease;
+}
+
 @media screen and (min-width: 900px) {
   .sidebar {
     right: 0 !important;

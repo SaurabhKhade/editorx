@@ -5,15 +5,20 @@ import Switch from './switch';
 import Input from './input';
 import HandleFiles from './handleFiles';
 import Popup from './popup';
-import {useConfig} from '../hooks';
+import {useConfig,useTheme} from '../hooks';
 import {useState} from 'react';
 
 export default function Sidebar({open}) {
   const [config,setConfig] = useConfig();
   const [childs,setChilds] = useState(0);
+  const [theme,toggleTheme] = useTheme();
   
   const style = {
     right: open?'0':'-301px'
+  };
+  
+  const btnStyle = {
+    left: theme==='light'?'.1em':'calc(100% - 1.4em)'
   };
   
   function renderThemes(item) {
@@ -45,6 +50,13 @@ export default function Sidebar({open}) {
     <>
     <Popup />
     <div className="sidebar" style={style}>
+      <div className='theme-toggle'>
+        <p>Light </p>
+        <div className='wrapper' onClick={toggleTheme}>
+          <div className='button' style={btnStyle}></div>
+        </div>
+        <p>Dark</p>
+      </div>
       <Tab caption="Files" childs={childs}>
         <HandleFiles setChilds={setChilds}/>
       </Tab>

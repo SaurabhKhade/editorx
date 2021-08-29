@@ -12,11 +12,12 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-if(process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production') {
   if ("serviceWorker" in navigator) {
-    window.addEventListener("load", function() {
+    window.addEventListener("load",() => {
       navigator.serviceWorker
-        .register("/serviceWorker.js");
+      .register("/serviceWorker.js")
+      .catch(e=>e);
     })
   }
 }

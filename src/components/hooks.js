@@ -1,5 +1,5 @@
 import {useContext} from 'react';
-import {editorContext,filesContext,popupContext} from './context';
+import {editorContext,filesContext,popupContext,themeContext} from './context';
 import detector from './file-detector';
 
 export function useConfig() {
@@ -12,6 +12,18 @@ export function useConfig() {
   }
   
   return [config,setFunction];
+}
+
+export function useTheme() {
+  const [theme,setTheme] = useContext(themeContext);
+  
+  function toggleFunction() {
+    let updated = theme==='light'?'dark':'light';
+    localStorage.setItem("prefered-theme",updated);
+    setTheme(updated);
+  }
+  
+  return [theme,toggleFunction];
 }
 
 export function usePopup() {

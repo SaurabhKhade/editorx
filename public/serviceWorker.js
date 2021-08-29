@@ -1,4 +1,4 @@
-const cacheStore = "editorx-cache"
+const cacheStore = "editorx-cache-v1"
 const assets = [
   "/",
   "/index.html",
@@ -9,37 +9,54 @@ const assets = [
   "/manifest.json",
 ]
 
-self.addEventListener("install", installEvent => {
-  installEvent.waitUntil(
-    caches.open(cacheStore).then(cache => {
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(cacheStore)
+    .then(cache => {
       cache.addAll(assets)
     })
   )
 })
 
-self.addEventListener('fetch', function(event) {
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
-        if (response) {
+    .then(response => {
+      if (response) {
+        return response;
+      }
+
+      return fetch(event.request)
+      .then(response => {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
           return response;
         }
+        let responseToCache = response.clone();
 
-        return fetch(event.request).then(
-          function(response) {
-            if(!response || response.status !== 200 || response.type !== 'basic') {
-              return response;
-            }
-            var responseToCache = response.clone();
+        caches.open(cacheStore)
+        .then(cache => {
+          cache.put(event.request, responseToCache);
+        });
 
-            caches.open(cacheStore)
-              .then(function(cache) {
-                cache.put(event.request, responseToCache);
-              });
+        return response;
+      });
+    })
+  );
+});
 
-            return response;
+self.addEventListener('activate', event => {
+
+  let cacheAllowlist = ['editorx-cache-v1'];
+
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheAllowlist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
           }
-        );
-      })
-    );
+        })
+      );
+    })
+  );
 });
