@@ -1,5 +1,5 @@
 import {useContext,useEffect,useState} from 'react';
-import {editorContext,filesContext,popupContext} from './context';
+import {editorContext,filesContext,popupContext,palletContext} from './context';
 import detector from './file-detector';
 
 export function useConfig() {
@@ -21,6 +21,9 @@ export function useTheme() {
     let saved = localStorage.getItem("prefered-theme");
     if (saved) {
       setTheme(saved);
+    } else {
+      saved = 'dark';
+      localStorage.setItem("prefered-theme",'dark');
     }
     document.body.setAttribute('data-theme',saved);
   },[]);
@@ -40,8 +43,14 @@ export function usePopup() {
   return control;
 }
 
+export function usePallet() {
+  const control = useContext(palletContext);
+  return control;
+}
+
 export function useFileSystem() {
   const [files,setFiles,loadedFile,setLoadedFile] = useContext(filesContext);
+  const [,setPallet] = usePallet();
   
   function addFile(newFile) {
     let file = makeFile(newFile);
@@ -84,7 +93,16 @@ export function useFileSystem() {
       delete old[name];
       return {...old};
     });
-    if (name===loadedFile) setLoadedFile(undefined);
+    setPallet(old=>{
+      let remain = old.filter(i=>i!==name);
+      if(name===loadedFile) {
+        if (remain.length===0)
+          setLoadedFile(undefined);
+        else 
+          setLoadedFile(remain[0]);
+      }
+      return remain;
+    });
   }
   
   return {files,loadedFile,setLoadedFile,addFile,updateFile,renameFile,deleteFile};

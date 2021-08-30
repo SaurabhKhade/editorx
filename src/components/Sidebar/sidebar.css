@@ -59,3 +59,15 @@ margin: 0;
     width: 350px;
   }
 }
+
+@media screen and (max-width: 300px) {
+  .sidebar {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 200px) {
+  .sidebar {
+    width: 150px;
+  }
+}

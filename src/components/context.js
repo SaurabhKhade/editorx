@@ -8,6 +8,7 @@ export default ContextProvider;
 export const editorContext = createContext();
 export const filesContext = createContext();
 export const popupContext = createContext();
+export const palletContext = createContext();
 
 function EditorContext({children}) {
   const [config,setConfig] = useState(defaultConfig);
@@ -15,6 +16,9 @@ function EditorContext({children}) {
     let saved = localStorage.getItem("editorConfig");
     if (saved) {
       saved = JSON.parse(saved);
+      if(saved.setOptions === undefined) {
+        saved.setOptions = defaultUpdates;
+      }
       setConfig(saved);
     }
   },[]);
@@ -56,15 +60,28 @@ function PopupContext({children}) {
   );
 }
 
+function PalletContext({children}) {
+  
+  const control = useState([]);
+  
+  return (
+    <palletContext.Provider value={control}>
+      {children}
+    </palletContext.Provider>
+  );
+}
+
 function ContextProvider({children}) {
   return (
-      <EditorContext>
-        <FilesContext>
-          <PopupContext>
+    <EditorContext>
+      <FilesContext>
+        <PopupContext>
+          <PalletContext>
             {children}  
-          </PopupContext>
-        </FilesContext>
-      </EditorContext>
+          </PalletContext>
+        </PopupContext>
+      </FilesContext>
+    </EditorContext>
   )
 }
 
@@ -81,5 +98,24 @@ const defaultConfig = {
   wrapEnabled: false,
   style: {
     fontFamily: 'Fira Code'
+  },
+  setOptions: {
+    highlightSelectedWord: true,
+    readOnly: false,
+    cursorStyle: 'ace',
+    enableMultiselect: true,
+    useWorker: false
   }
 };
+
+const defaultUpdates = {
+  highlightSelectedWord: true,
+  readOnly: false,
+  cursorStyle: "ace",
+  enableMultiselect: true,
+  useWorker: false,
+};
+
+
+// cursorStyle: "ace"|"slim"|"smooth"|"wide"
+// all above  should in setOptions as object

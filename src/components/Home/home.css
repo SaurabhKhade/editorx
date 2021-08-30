@@ -1,0 +1,11 @@
+.home {
+  height: 100%;
+  padding: 10px 20px;
+  background-color: var(--home-bg);
+  color: var(--home-color);
+}
+
+.home h1,h4 {
+  margin: 10px;
+  text-align: center;
+}

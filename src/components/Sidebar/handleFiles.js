@@ -1,17 +1,29 @@
 import { useEffect, useState } from "react";
-import { useFileSystem, usePopup } from "../hooks";
+import { useFileSystem, usePopup, usePallet } from "../hooks";
 import { IoSettingsSharp } from "react-icons/io5";
 import "./file-system.css";
 
-export default function HandleFiles({ setChilds }) {
+export default function HandleFiles({ setChilds,sidebarOpen}) {
   const system = useFileSystem();
   const [, setPopup] = usePopup();
+  const[,setPallet] = usePallet();
 
   useEffect(() => {
     let childs = Object.keys(system.files).length;
     setChilds(childs + 1);
     // eslint-disable-next-line
   }, [system.files]);
+  
+  function loader(file) {
+    system.setLoadedFile(file);
+    setPallet(old=>{
+      if (!old.includes(file)) {
+        return [...old,file];
+      }
+      return old;
+    });
+    sidebarOpen(false);
+  }
 
   return (
     <>
@@ -21,7 +33,7 @@ export default function HandleFiles({ setChilds }) {
           key={item}
           file={item}
           files={system.files}
-          loader={system.setLoadedFile}
+          loader={loader}
           setPopup={setPopup}
         />
       ))}

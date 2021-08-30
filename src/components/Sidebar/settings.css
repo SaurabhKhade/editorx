@@ -9,6 +9,13 @@
   /* padding: .3em; */
 }
 
+.settings-label p:first-of-type {
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding-right: 10px;
+  width: calc(100% - 2em);
+}
+
 .switch div {
   height: 85%;
   width: 85%;
