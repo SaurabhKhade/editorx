@@ -1,4 +1,4 @@
-const cacheStore = "editorx-cache-v1"
+const cacheStore = "editorx-cache-v2"
 const assets = [
   "/",
   "/index.html",
