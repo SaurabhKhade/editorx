@@ -8,6 +8,7 @@ export default ContextProvider;
 export const editorContext = createContext();
 export const filesContext = createContext();
 export const popupContext = createContext();
+export const palletContext = createContext();
 
 function EditorContext({children}) {
   const [config,setConfig] = useState(defaultConfig);
@@ -56,15 +57,28 @@ function PopupContext({children}) {
   );
 }
 
+function PalletContext({children}) {
+  
+  const control = useState([]);
+  
+  return (
+    <palletContext.Provider value={control}>
+      {children}
+    </palletContext.Provider>
+  );
+}
+
 function ContextProvider({children}) {
   return (
-      <EditorContext>
-        <FilesContext>
-          <PopupContext>
+    <EditorContext>
+      <FilesContext>
+        <PopupContext>
+          <PalletContext>
             {children}  
-          </PopupContext>
-        </FilesContext>
-      </EditorContext>
+          </PalletContext>
+        </PopupContext>
+      </FilesContext>
+    </EditorContext>
   )
 }
 

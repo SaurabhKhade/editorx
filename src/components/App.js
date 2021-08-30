@@ -3,6 +3,7 @@ import {useState} from 'react';
 import Sidebar from './Sidebar';
 import Executer from './Executer';
 import Home from './Home';
+import Pallet from './Pallet';
 import {useFileSystem} from './hooks';
 import "./App.css";
 
@@ -20,7 +21,11 @@ export default function App() {
       <Executer />
       <div className="editor-wrapper">
         {
-          loadedFile?<Editor {...(files[loadedFile])} handleChange={updateFile}/>:
+          loadedFile?
+          <>
+          <Pallet />
+          <Editor {...(files[loadedFile])} handleChange={updateFile}/>
+          </>:
           <Home />
         }
       </div>
