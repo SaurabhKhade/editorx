@@ -3,6 +3,9 @@ html,body,#root {
   min-height: 100%;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 html {
@@ -17,10 +20,13 @@ html {
   --home-bg: hsl(0,0%,97%);
   --home-color: hsl(0,0%,7%);
   --toggler-color: rgb(17, 17, 17);
+  --home-link: hsl(240,100%,43.3%);
+  --home-img-border: black;
 }
-::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar, 
+#root::-webkit-scrollbar {
+  display: none;
 }
 
 body[data-theme='dark'] {
@@ -32,6 +38,8 @@ body[data-theme='dark'] {
   --tab-border: hsl(0,0%,5%);
   --sidebar-color: hsl(0,0%,98%);
   --sidebar: hsl(0,0%,12%);
+  --home-link: rgb(255, 166, 0);
+  --home-img-border: white;
 }
 
 * {

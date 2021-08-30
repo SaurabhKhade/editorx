@@ -109,13 +109,13 @@ export default function Sidebar() {
           labelFor="useWorker"
           optional />
       </Tab>
-      <Tab caption="Themes" childs={AllThemes.length}>
+      <Tab caption="Editor Themes" childs={AllThemes.length}>
         {AllThemes.map(renderThemes)}
       </Tab>
-      <Tab caption="Key Bindings" childs={keyBindings.length}>
+      <Tab caption="Keyboard Shortcuts" childs={keyBindings.length}>
         {keyBindings.map(renderBinding)}
       </Tab>
-      <Tab caption="Font Family" childs={fontfamilies.length}>
+      <Tab caption="Font Style" childs={fontfamilies.length}>
         {fontfamilies.map(renderFonts)}
       </Tab>
     </div>

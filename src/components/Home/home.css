@@ -1,11 +1,83 @@
 .home {
-  height: 100%;
-  padding: 10px 20px;
-  background-color: var(--home-bg);
   color: var(--home-color);
+  background-color: var(--home-bg);
+  border: 1px solid var(--home-bg);
+  padding: 20px 10px;
 }
 
-.home h1,h4 {
-  margin: 10px;
+a {
+  text-decoration: none;
+  color: var(--home-link);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+p {
+  line-height: 1.2em;
+  margin: 10px 0;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+hr {
+  width: calc(100% - 2rem);
+  max-width: 780px;
+  margin: 0 auto;
+  border: .04em solid hsl(0,0%,75%);
+  background-color: hsl(0,0%,75%);
+}
+
+.logo {
+  width: 250px;
+  height: 170px;
+  border: 1px solid var(--home-img-border);
+  margin: 10px auto;
+  border-radius: .3em;
+  overflow: hidden;
+}
+
+.title {
   text-align: center;
+  padding: 20px 0;
+}
+
+.title h1,.title h3 {
+  margin: 0;
+}
+
+section {
+  padding: 20px 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+section h3,section h4 {
+  margin: 10px 0;
+}
+
+li {
+  margin: .4em 0;
+}
+
+.content:first-letter {
+  margin-left: 1.5em;
+}
+
+.img-wrapper {
+  height: 250px;
+  width: 180px;
+  border: 1px solid var(--home-img-border);
+  border-radius: .3em;
+  overflow: hidden;
+  margin: 1em auto;
+}
+
+section li a {
+  font-weight: bold;
 }

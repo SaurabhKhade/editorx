@@ -1,4 +1,4 @@
-const cacheStore = "editorx-cache-v3.1"
+const cacheStore = "editorx-cache-v4"
 const assets = [
   "/",
   "/index.html",
@@ -48,7 +48,7 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener('activate', event => {
 
-  let cacheAllowlist = ['editorx-cache-v3.1'];
+  let cacheAllowlist = [cacheStore];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {
