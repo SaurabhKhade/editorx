@@ -8,7 +8,6 @@ export default ContextProvider;
 export const editorContext = createContext();
 export const filesContext = createContext();
 export const popupContext = createContext();
-export const themeContext = createContext();
 
 function EditorContext({children}) {
   const [config,setConfig] = useState(defaultConfig);
@@ -57,25 +56,8 @@ function PopupContext({children}) {
   );
 }
 
-function ThemeContext({children}) {
-  const [theme,setTheme] = useState('dark');
-  useEffect(()=>{
-    let saved = localStorage.getItem("prefered-theme");
-    if (saved) {
-      setTheme(saved);
-    }
-  },[]);
-  
-  return (
-    <themeContext.Provider value={[theme,setTheme]}>
-      {children}
-    </themeContext.Provider>
-  );
-}
-
 function ContextProvider({children}) {
   return (
-    <ThemeContext>
       <EditorContext>
         <FilesContext>
           <PopupContext>
@@ -83,7 +65,6 @@ function ContextProvider({children}) {
           </PopupContext>
         </FilesContext>
       </EditorContext>
-    </ThemeContext>
   )
 }
 

@@ -6,16 +6,32 @@ html,body,#root {
 }
 
 html {
-  --sidebar: hsl(0,0%,7%);
-  --tab-bg: hsl(0,0%,15%);
-  --tab-border: hsl(0,0%,12%);
-  --sidebar-color: hsl(0,0%,95%);
-  --switch: hsl(209.7,100%,50%);
-  --selected: orange;
+  --sidebar: hsl(0, 0%, 95%);
+  --sidebar-border: black;
+  --tab-bg: hsl(0, 0%, 100%);
+  --tab-border: hsl(0,0%,15%);
+  --sidebar-color: hsl(0,0%,0%);
+  --switch: rgb(255, 166, 0);
+  --selected: rgb(255, 166, 0);
+  /* --selected: rgb(47, 32, 253); */
+  --home-bg: hsl(0,0%,97%);
+  --home-color: hsl(0,0%,7%);
+  --toggler-color: rgb(17, 17, 17);
 }
 ::-webkit-scrollbar {
     width: 0;
     background: transparent;
+}
+
+body[data-theme='dark'] {
+  --home-color: hsl(0,0%,100%);
+  --home-bg: hsl(0,0%,20%);
+  --sidebar-border: white;
+  --toggler-color: yellow;
+  --tab-bg: hsl(0,0%,23%);
+  --tab-border: hsl(0,0%,5%);
+  --sidebar-color: hsl(0,0%,98%);
+  --sidebar: hsl(0,0%,12%);
 }
 
 * {
@@ -35,6 +51,8 @@ html {
 .no-file {
   height: 100%;
   padding: 10px 20px;
+  background-color: var(--home-bg);
+  color: var(--home-color);
 }
 
 .no-file h1,h4 {

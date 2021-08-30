@@ -1,5 +1,5 @@
 .sidebar {
-  border: 1px solid black;
+  border-left: .1em solid var(--sidebar-border);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -13,18 +13,25 @@
 
 .theme-toggle {
   display: flex;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   justify-content: flex-end;
   color: var(--sidebar-color);
   align-items: center;
+  font-size: 1.6rem;
+  padding-bottom: 10px;
+  color: var( --toggler-color);
+}
+
+.theme-toggle p {
+margin: 0;
 }
 
 .theme-toggle .wrapper {
-  height: 1.7em;
-  width: 3.2em;
-  padding: .1em;
+  height: 1.7rem;
+  width: 3.2rem;
+  padding: .1rem;
   border-radius: 999px;
-  border: 2px solid yellow;
+  border: 2px solid var(--toggler-color);
   margin: 0 10px;
   display: flex;
   align-items: center;
@@ -33,10 +40,10 @@
 
 .theme-toggle .button {
   position: absolute;
-  height: 1.3em;
-  width: 1.3em;
+  height: 1.3rem;
+  width: 1.3rem;
   border-radius: 50%;
-  background-color: yellow;
+  background-color: var(--toggler-color);
   transition: left .2s ease;
 }
 

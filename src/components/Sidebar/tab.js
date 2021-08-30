@@ -16,7 +16,7 @@ export default function Tab({caption,children,childs}) {
   
   return (
     <div className="tab" style={style}>
-      <p onClick={()=>setOpen(old=>!old)}>
+      <p onClick={()=>setOpen(old=>!old)} className='tab-label'>
         <span style={arrow}>&gt;</span>&nbsp;&nbsp;
         {caption}
       </p>

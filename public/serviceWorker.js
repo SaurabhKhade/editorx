@@ -46,7 +46,7 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener('activate', event => {
 
-  let cacheAllowlist = ['editorx-cache-v1'];
+  let cacheAllowlist = ['editorx-cache-v2'];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {

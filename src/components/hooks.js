@@ -1,5 +1,5 @@
-import {useContext} from 'react';
-import {editorContext,filesContext,popupContext,themeContext} from './context';
+import {useContext,useEffect,useState} from 'react';
+import {editorContext,filesContext,popupContext} from './context';
 import detector from './file-detector';
 
 export function useConfig() {
@@ -15,12 +15,21 @@ export function useConfig() {
 }
 
 export function useTheme() {
-  const [theme,setTheme] = useContext(themeContext);
+  const [theme,setTheme] = useState('dark');
   
+  useEffect(()=>{
+    let saved = localStorage.getItem("prefered-theme");
+    if (saved) {
+      setTheme(saved);
+    }
+    document.body.setAttribute('data-theme',saved);
+  },[]);
+
   function toggleFunction() {
     let updated = theme==='light'?'dark':'light';
     localStorage.setItem("prefered-theme",updated);
     setTheme(updated);
+    document.body.setAttribute('data-theme',updated);
   }
   
   return [theme,toggleFunction];

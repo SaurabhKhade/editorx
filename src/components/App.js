@@ -30,7 +30,6 @@ export default function App() {
 }
 
 function NoFile() {
-
   return (
     <div className="no-file">
       <h4>Welcome to</h4>

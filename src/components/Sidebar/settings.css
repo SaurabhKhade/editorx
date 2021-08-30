@@ -1,5 +1,5 @@
 .switch,.hasInput {
-  border: 1px solid var(--switch);
+  border: .1em solid var(--switch);
   height: 75%;
   width: 2em;
   aspect-ratio: 1/1 !important;

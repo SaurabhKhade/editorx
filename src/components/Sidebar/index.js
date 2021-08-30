@@ -7,6 +7,7 @@ import HandleFiles from './handleFiles';
 import Popup from './popup';
 import {useConfig,useTheme} from '../hooks';
 import {useState} from 'react';
+import {HiSun,HiMoon} from 'react-icons/hi';
 
 export default function Sidebar({open}) {
   const [config,setConfig] = useConfig();
@@ -18,7 +19,7 @@ export default function Sidebar({open}) {
   };
   
   const btnStyle = {
-    left: theme==='light'?'.1em':'calc(100% - 1.4em)'
+    left: theme==='light'?'.1rem':'calc(100% - 1.4rem)'
   };
   
   function renderThemes(item) {
@@ -51,11 +52,11 @@ export default function Sidebar({open}) {
     <Popup />
     <div className="sidebar" style={style}>
       <div className='theme-toggle'>
-        <p>Light </p>
+        <p><HiSun /></p>
         <div className='wrapper' onClick={toggleTheme}>
           <div className='button' style={btnStyle}></div>
         </div>
-        <p>Dark</p>
+        <p><HiMoon /></p>
       </div>
       <Tab caption="Files" childs={childs}>
         <HandleFiles setChilds={setChilds}/>

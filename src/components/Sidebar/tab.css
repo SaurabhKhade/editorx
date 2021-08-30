@@ -13,6 +13,10 @@
   transition: height .1s ease;
 }
 
+.tab .tab-label {
+  font-weight: bold;
+}
+
 .tab > p, .tab-hidden > div, .tab-hidden > p {
   padding: 0 15px 0 10px;
   display: flex;
