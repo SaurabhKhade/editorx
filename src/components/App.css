@@ -39,7 +39,7 @@ body[data-theme='dark'] {
 }
 *:active,*:hover,*:focus {
   outline: none;
-  /* webkit-tap-highlight-color: transparent; */
+  -webkit-tap-highlight-color: transparent;
   tap-highlight-color: transparent;
 }
 
