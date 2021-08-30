@@ -83,6 +83,15 @@ export function useFileSystem() {
       file = {...rest,code:file.code}
       old[newName] = file;
       updateSource(old);
+      setPallet(old=>{
+        if (old.includes(oldName))
+          return old.map(i=>{
+            if(i===oldName) return newName;
+            else return i;
+          });
+        else return old;
+      })
+      
       if(loadedFile===oldName) setLoadedFile(newName);
       return {...(sort(old))};
     });
