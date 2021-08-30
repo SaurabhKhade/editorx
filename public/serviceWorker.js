@@ -1,4 +1,4 @@
-const cacheStore = "editorx-cache-v2"
+const cacheStore = "editorx-cache-v3"
 const assets = [
   "/",
   "/index.html",
@@ -6,6 +6,8 @@ const assets = [
   "/static/js/bundle.js",
   "/static/js/vendors~main.chunk.js",
   "/static/js/main.chunk.js",
+  "/static/images/logo-both.jpg",
+  "/static/images/logo-dark.png",
   "/manifest.json",
 ]
 
@@ -46,7 +48,7 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener('activate', event => {
 
-  let cacheAllowlist = ['editorx-cache-v2'];
+  let cacheAllowlist = ['editorx-cache-v3'];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {

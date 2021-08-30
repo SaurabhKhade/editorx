@@ -3,7 +3,7 @@ import { useFileSystem, usePopup, usePallet } from "../hooks";
 import { IoSettingsSharp } from "react-icons/io5";
 import "./file-system.css";
 
-export default function HandleFiles({ setChilds }) {
+export default function HandleFiles({ setChilds,sidebarOpen}) {
   const system = useFileSystem();
   const [, setPopup] = usePopup();
   const[,setPallet] = usePallet();
@@ -22,6 +22,7 @@ export default function HandleFiles({ setChilds }) {
       }
       return old;
     });
+    sidebarOpen(false);
   }
 
   return (

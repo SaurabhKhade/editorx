@@ -95,5 +95,15 @@ const defaultConfig = {
   wrapEnabled: false,
   style: {
     fontFamily: 'Fira Code'
+  },
+  setOptions: {
+    highlightSelectedWord: true,
+    readOnly: false,
+    cursorStyle: 'ace',
+    enableMultiselect: true,
+    useWorker: false
   }
 };
+
+// cursorStyle: "ace"|"slim"|"smooth"|"wide"
+// all above  should in setOptions as object

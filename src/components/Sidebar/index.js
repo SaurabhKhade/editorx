@@ -9,10 +9,15 @@ import {useConfig,useTheme} from '../hooks';
 import {useState} from 'react';
 import {HiSun,HiMoon} from 'react-icons/hi';
 
-export default function Sidebar({open}) {
+export default function Sidebar() {
   const [config,setConfig] = useConfig();
   const [childs,setChilds] = useState(0);
   const [theme,toggleTheme] = useTheme();
+  let [open,setOpen] = useState(false);
+  
+  function toggle() {
+    setOpen(old=>!old);
+  }
   
   const style = {
     right: open?'0':'-301px'
@@ -49,6 +54,7 @@ export default function Sidebar({open}) {
   
   return (
     <>
+    <button style={sidebar} onClick={toggle}>Sidebar Open/Close</button>  
     <Popup />
     <div className="sidebar" style={style}>
       <div className='theme-toggle'>
@@ -59,9 +65,9 @@ export default function Sidebar({open}) {
         <p><HiMoon /></p>
       </div>
       <Tab caption="Files" childs={childs}>
-        <HandleFiles setChilds={setChilds}/>
+        <HandleFiles setChilds={setChilds} sidebarOpen={setOpen}/>
       </Tab>
-      <Tab caption="Settings" childs={8}>
+      <Tab caption="Settings" childs={12}>
         <Input 
           label="Font Size" 
           labelFor="fontSize" />
@@ -86,6 +92,22 @@ export default function Sidebar({open}) {
         <Switch 
           label="Wrap Lines" 
           labelFor="wrapEnabled" />
+        <Switch 
+          label="Read Only" 
+          labelFor="readOnly"
+          optional />
+        <Switch 
+          label="Highlight Selected Word" 
+          labelFor="highlightSelectedWord"
+          optional />
+        <Switch 
+          label="Enable Multiselect" 
+          labelFor="enableMultiselect"
+          optional />
+        <Switch 
+          label="Basic Syntax Check" 
+          labelFor="useWorker"
+          optional />
       </Tab>
       <Tab caption="Themes" childs={AllThemes.length}>
         {AllThemes.map(renderThemes)}
@@ -149,3 +171,13 @@ const fontfamilies = [
   "Sudo",
   "Ubuntu Mono"
 ]
+
+
+const sidebar = {
+  padding: '10px',
+  fontSize: '18px',
+  fontWeight: 'bold',
+  position: 'fixed',
+  bottom: '0',
+  zIndex: '100'
+}

@@ -16,7 +16,7 @@ export default function Input({label,labelFor}) {
   }
 
   return (
-    <div>
+    <div className="settings-label">
       <p onClick={click}>
         {label}
       </p>

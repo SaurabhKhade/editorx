@@ -1,6 +1,6 @@
 .pallet {
-  height: calc(1rem + 25px);
-  padding: 5px 0 10px 0;
+  height: calc(1rem + 35px);
+  padding: 5px 10px 10px 10px;
   display: flex;
   gap: 5px;
   overflow-x: scroll;
@@ -10,8 +10,8 @@
 
 .pallet-file {
   /* border: 1px solid red; */
-  font-size: calc(1rem - 1px);
-  padding: 2px 5px;
+  font-size: calc(1rem);
+  padding: 5px 8px;
   background-color: hsl(0,0%,23%);
   color: white;
   border-radius: .3em;
