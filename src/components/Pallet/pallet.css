@@ -1,18 +1,28 @@
 .pallet {
-  height: calc(1rem + 35px);
-  padding: 5px 10px 10px 10px;
   display: flex;
-  gap: 5px;
+  align-items: center;
+  height: 50px;
+  padding: 0 10px;
+  background-color: hsl(0, 0%, 10%);
+  color: white;
+  border-bottom: 1px solid white;
+  gap: 10px;
   overflow-x: scroll;
-  background-color: hsl(0,0%,12%);
-  border-bottom: 1px solid hsl(0,0%,80%);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.pallet::-webkit-scrollbar {
+  display: none;
 }
 
 .pallet-file {
-  /* border: 1px solid red; */
-  font-size: calc(1rem);
-  padding: 5px 8px;
-  background-color: hsl(0,0%,23%);
-  color: white;
-  border-radius: .3em;
+  padding: .3em .6em;
+}
+
+@media only screen and (max-width: 500px) {
+  .pallet {
+    height: 40px;
+    font-size: 14px;
+  }
 }
