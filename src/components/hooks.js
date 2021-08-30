@@ -21,6 +21,9 @@ export function useTheme() {
     let saved = localStorage.getItem("prefered-theme");
     if (saved) {
       setTheme(saved);
+    } else {
+      saved = 'dark';
+      localStorage.setItem("prefered-theme",'dark');
     }
     document.body.setAttribute('data-theme',saved);
   },[]);
