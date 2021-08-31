@@ -46,13 +46,16 @@ function CreateFiles({ create }) {
   const [fileName, setFileName] = useState("");
 
   const label = {
-    display: open ? "none" : "block",
+    left: open ? "-100%" : "0",
   };
   const field = {
-    display: open ? "block" : "none",
+    left: open ? "0" : "100%",
   };
 
   function submit() {
+    if (fileName.trim() === '') {
+      return alert('Please enter valid name!');
+    }
     setFileName("");
     create(fileName);
   }

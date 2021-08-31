@@ -174,8 +174,8 @@ const fontfamilies = [
 
 
 const sidebar = {
-  padding: '10px',
-  fontSize: '18px',
+  padding: '5px',
+  fontSize: '16px',
   fontWeight: 'bold',
   position: 'fixed',
   bottom: '0',
