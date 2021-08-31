@@ -39,7 +39,7 @@ export default function Exec() {
       <label htmlFor="std-in">STDIN</label>
       <textarea rows="5" id="std-in" value={input} onChange={e=>setInput(e.target.value)}/>
       <button onClick={execute}>Run</button>
-      <label htmlFor="std-out">STDIN</label>
+      <label htmlFor="std-out">STDOUT</label>
       <textarea rows="10" id="std-out" value={output} readOnly/>
       <button onClick={()=>setInputBox(false)}>Close</button>
     </div>:<></>

@@ -5,26 +5,26 @@
   padding: 20px 10px;
 }
 
-a {
+.home a {
   text-decoration: none;
   color: var(--home-link);
 }
 
-a:hover {
+.home a:hover {
   text-decoration: underline;
 }
 
-p {
+.home p {
   line-height: 1.2em;
   margin: 10px 0;
 }
 
-img {
+.home img {
   height: 100%;
   width: 100%;
 }
 
-hr {
+.home hr {
   width: calc(100% - 2rem);
   max-width: 780px;
   margin: 0 auto;
@@ -32,7 +32,7 @@ hr {
   background-color: hsl(0,0%,75%);
 }
 
-.logo {
+.home .logo {
   width: 250px;
   height: 170px;
   border: 1px solid var(--home-img-border);
@@ -41,35 +41,35 @@ hr {
   overflow: hidden;
 }
 
-.title {
+.home .title {
   text-align: center;
   padding: 20px 0;
 }
 
-.title h1,.title h3 {
+.home .title h1,.home .title h3 {
   margin: 0;
 }
 
-section {
+.home section {
   padding: 20px 1rem;
   max-width: 800px;
   margin: 0 auto;
   /* border: 1px solid red; */
 }
 
-section h3,section h4 {
+.home section h3,.home section h4 {
   margin: 10px 0;
 }
 
-li {
+.home li {
   margin: .4em 0;
 }
 
-.content:first-letter {
+.home .content:first-letter {
   margin-left: 1.5em;
 }
 
-.img-wrapper {
+.home .img-wrapper {
   height: 250px;
   width: 180px;
   border: 1px solid var(--home-img-border);
@@ -78,6 +78,6 @@ li {
   margin: 1em auto;
 }
 
-section li a {
+.home section li a {
   font-weight: bold;
 }
