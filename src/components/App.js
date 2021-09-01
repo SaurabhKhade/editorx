@@ -5,17 +5,19 @@ import Home from "./Home";
 import Pallet from "./Pallet";
 import { useFileSystem } from "./hooks";
 import { useEffect } from "react";
-import {messaging,onMessage} from './firebase';
+// import { messaging, onMessage } from "./firebase";
 import "./App.css";
+
+
+// const messaging = getMessaging();
+
 
 export default function App() {
   const { files, loadedFile, updateFile } = useFileSystem();
-  
-  useEffect(()=>{
-    onMessage(messaging, (payload) => {
-      console.log('Message received. ', payload);
-    });
-  },[]);
+
+  useEffect(() => {
+    
+  }, []);
 
   return (
     <>
@@ -34,4 +36,3 @@ export default function App() {
     </>
   );
 }
-

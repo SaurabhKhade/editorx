@@ -1,37 +1,26 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-import { getMessaging } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-messaging";
-import { onBackgroundMessage } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-messaging-sw";
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
-const app = initializeApp({
-  messagingSenderId: "42380724238"
+firebase.initializeApp({
+  messagingSenderId: '42380724238'
 });
 
-const messaging = getMessaging(app);
+const messaging = firebase.messaging();
 
-onBackgroundMessage(messaging, (payload) => {
+messaging.onBackgroundMessage((payload) => {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
-  const title = 'Background Message Title';
-  const body = 'Background Message body.';
-  
-  notify(title,body);
+  const notificationTitle = 'Background Message Title';
+  const notificationOptions = {
+    body: 'Background Message body.',
+    image: '/static/icon/favicon-96x96.png'
+  };
+
+  self.registration.showNotification(notificationTitle,
+    notificationOptions);
 });
 
-function notify(title,body) {
-  if (Notification.permission === 'granted') {
-    navigator.serviceWorker.getRegistration()
-    .then(reg => {
-      var options = {
-        body,
-        icon: '/static/icon/favicon-96x96.png',
-        badge: '/static/icon/badge.png',
-        vibrate: [100, 50, 100],
-        data: {
-          dateOfArrival: Date.now()
-        }
-      };
-      reg.showNotification(title, options);
-    })
-    .catch(e=>console.log(e));
-  }
-}
+messaging.onMessage((payload) => {
+  console.log('Message received. ', payload);
+  self.registration.showNotification("foreground");
+});
