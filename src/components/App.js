@@ -4,7 +4,7 @@ import Executer from "./Executer";
 import Home from "./Home";
 import Pallet from "./Pallet";
 import { useFileSystem } from "./hooks";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { messaging } from "./firebase";
 import "./App.css";
 
@@ -26,6 +26,7 @@ export default function App() {
 
   return (
     <>
+      <Instruction />
       <Executer />
       {loadedFile ? (
         <>
@@ -50,4 +51,27 @@ function notify(title, body) {
       badge: "/static/icon/badge.png",
     });
   });
+}
+
+function Instruction() {
+  const [show,setShow] = useState(false);
+  
+  useEffect(()=>{
+    let first_time = localStorage.getItem('first-time');
+    if (!first_time) {
+      setShow(true);
+      localStorage.setItem('first-time','false');
+    }
+  },[]);
+  
+  const style = {
+    display: show?'block':'none'
+  };
+  
+  return (
+    <div className="slide-instruction" onClick={()=>setShow(false)} style={style}>
+      <img src="/static/images/arrow-left.png" alt="arrow left" className="arrow"/>
+      <h2>Slide from right edge to left to open sidebar</h2>
+    </div>
+  );
 }

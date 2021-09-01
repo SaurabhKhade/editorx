@@ -8,6 +8,7 @@ import Popup from "./popup";
 import { useConfig, useTheme } from "../hooks";
 import { useState } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
+import {useSwipeable} from 'react-swipeable';
 
 export default function Sidebar() {
   const [config, setConfig] = useConfig();
@@ -15,16 +16,26 @@ export default function Sidebar() {
   const [theme, toggleTheme] = useTheme();
   let [open, setOpen] = useState(false);
 
-  function toggle() {
-    setOpen((old) => !old);
-  }
-
   const style = {
     right: open ? "0" : "-301px",
   };
 
   const btnStyle = {
     left: theme === "light" ? ".1rem" : "calc(100% - 1.4rem)",
+  };
+  
+  const swipeOpenHandlers = useSwipeable({
+    onSwipedLeft: () => setOpen(true),
+    ...config,
+  });
+  
+  const swipeCloseHandlers = useSwipeable({
+    onSwipedRight: () => setOpen(false),
+    ...config,
+  });
+  
+  const backdropStyle = {
+    display: open?'block':'none'
   };
 
   function renderThemes(item) {
@@ -70,11 +81,11 @@ export default function Sidebar() {
 
   return (
     <>
-      <button style={sidebar} onClick={toggle}>
-        Sidebar Open/Close
-      </button>
+      <div className="backdrop" style={backdropStyle} onClick={()=>setOpen(false)}></div>
+      <div className="sidebar-toggle-handler" {...swipeOpenHandlers}>
+      </div>
       <Popup />
-      <div className="sidebar" style={style}>
+      <div className="sidebar" style={style} {...swipeCloseHandlers}>
         <div className="theme-toggle">
           <p>
             <HiSun />
@@ -221,12 +232,3 @@ const fontfamilies = [
   "Sudo",
   "Ubuntu Mono",
 ];
-
-const sidebar = {
-  padding: "5px",
-  fontSize: "16px",
-  fontWeight: "bold",
-  position: "fixed",
-  bottom: "0",
-  zIndex: "100",
-};
