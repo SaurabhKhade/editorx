@@ -1,5 +1,4 @@
-// const cacheStore = "editorx-cache-v5"
-const cacheStore = Date.now().toString();
+const cacheStore = "editorx-cache-v6"
 
 const assets = [
   "/",
@@ -13,80 +12,53 @@ const assets = [
   "/manifest.json",
 ]
 
-// function notify(title,body) {
-//   if (Notification.permission === 'granted') {
-//     navigator.serviceWorker.getRegistration()
-//     .then(reg => {
-//       var options = {
-//         body,
-//         icon: '/static/icon/favicon-96x96.png',
-//         badge: '/static/icon/badge.png',
-//         vibrate: [100, 50, 100],
-//         data: {
-//           dateOfArrival: Date.now()
-//         }
-//       };
-//       reg.showNotification(title, options);
-//     })
-//     .catch(e=>console.log(e));
-//   }
-// }
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(cacheStore)
+    .then(cache => {
+      cache.addAll(assets)
+    })
+  )
+})
 
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request)
+    .then(response => {
+      if (response) {
+        return response;
+      }
 
-// self.addEventListener("install", event => {
-//   event.waitUntil(
-//     caches.open(cacheStore)
-//     .then(cache => {
-//       cache.addAll(assets)
-//     })
-//   )
-// })
+      return fetch(event.request)
+      .then(response => {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+        let responseToCache = response.clone();
 
-// self.addEventListener('fetch', event => {
-//   event.respondWith(
-//     caches.match(event.request)
-//     .then(response => {
-//       if (response) {
-//         return response;
-//       }
+        caches.open(cacheStore)
+        .then(cache => {
+          cache.put(event.request, responseToCache);
+        });
 
-//       return fetch(event.request)
-//       .then(response => {
-//         if (!response || response.status !== 200 || response.type !== 'basic') {
-//           return response;
-//         }
-//         let responseToCache = response.clone();
+        return response;
+      });
+    })
+  );
+});
 
-//         caches.open(cacheStore)
-//         .then(cache => {
-//           cache.put(event.request, responseToCache);
-//         });
+self.addEventListener('activate', event => {
+  let cacheAllowlist = [cacheStore];
 
-//         return response;
-//       });
-//     })
-//   );
-// });
-
-// self.addEventListener('activate', event => {
-
-//   let cacheAllowlist = [cacheStore];
-
-//   event.waitUntil(
-//     caches.keys().then(cacheNames => {
-//       return Promise.all(
-//         cacheNames.map(cacheName => {
-//           if (cacheAllowlist.indexOf(cacheName) === -1) {
-//             return caches.delete(cacheName);
-//           }
-//         })
-//       );
-//     })
-//   );
-// });
-
-// self.addEventListener('updatefound', () => {
-//   if (Notification.permission == 'granted') {
-//     self.showNotification('EditorX update is available.\nplease close this browser tab or app window and re-open to update ...');
-//   }
-// });
+  event.waitUntil(
+    caches.keys().then(cacheNames => {
+      return Promise.all(
+        cacheNames.map(cacheName => {
+          if (cacheAllowlist.indexOf(cacheName) === -1) {
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    })
+  );
+});
