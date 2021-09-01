@@ -2,25 +2,24 @@ importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.10.0/firebase-messaging.js');
 
 firebase.initializeApp({
-  messagingSenderId: '42380724238'
+  apiKey: "AIzaSyAbH8HzY5VwgSM0OBNjymkgGexS6z8qHE8",
+  authDomain: "editorx-28163.firebaseapp.com",
+  projectId: "editorx-28163",
+  storageBucket: "editorx-28163.appspot.com",
+  messagingSenderId: "42380724238",
+  appId: "1:42380724238:web:b8b34272b57a9c46ccd45f",
 });
 
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  console.log('[firebase-messaging-sw.js] Received background message ', payload);
-  // Customize notification here
-  const notificationTitle = 'Background Message Title';
-  const notificationOptions = {
-    body: 'Background Message body.',
-    image: '/static/icon/favicon-96x96.png'
-  };
-
-  self.registration.showNotification(notificationTitle,
-    notificationOptions);
-});
-
-messaging.onMessage((payload) => {
-  console.log('Message received. ', payload);
-  self.registration.showNotification("foreground");
+  let {body,title} = payload.notification;
+  if (Notification.permission === 'granted') {
+    self.registration.showNotification(title,
+    {
+      body,
+      icon: 'https://editorx.vercel.app/static/icon/favicon-96x96.png',
+      badge: 'https://editorx.vercel.app/static/icon/badge.png'
+    });
+  }
 });
