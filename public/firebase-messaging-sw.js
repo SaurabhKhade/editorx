@@ -13,13 +13,36 @@ firebase.initializeApp({
 const messaging = firebase.messaging();
 
 messaging.onBackgroundMessage((payload) => {
-  let {body,title} = payload.notification;
+  let {
+    body, title
+  } = payload.notification;
   if (Notification.permission === 'granted') {
     self.registration.showNotification(title,
-    {
-      body,
-      icon: 'https://editorx.vercel.app/static/icon/favicon-96x96.png',
-      badge: 'https://editorx.vercel.app/static/icon/badge.png'
+      {
+        body,
+        icon: 'https://editorx.vercel.app/static/icon/favicon-96x96.png',
+        badge: 'https://editorx.vercel.app/static/icon/badge.png',
+        vibrate: [100, 50, 100],
+        actions: [{
+          action: 'visit',
+          title: 'Visit'
+        },
+          {
+            action: 'close',
+            title: 'Close'
+          },
+        ]
+      });
+    self.addEventListener('notificationclick', e => {
+      let notification = e.notification;
+      let action = e.action;
+
+      if (action === 'close') {
+        notification.close();
+      } else {
+        clients.openWindow('https://editorx.vercel.app');
+        notification.close();
+      }
     });
   }
 });

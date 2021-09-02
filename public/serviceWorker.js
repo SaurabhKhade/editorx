@@ -1,4 +1,5 @@
-const cacheStore = "editorx-cache-v7"
+const codeStore = "editorx-cache-codes-v8";
+const assetsStore = "editorx-cache-assets-v1";
 
 const assets = [
   "/",
@@ -10,16 +11,26 @@ const assets = [
   "/static/images/logo-both.jpg",
   "/static/images/logo-dark.png",
   "/manifest.json",
-]
+];
+const codes = [
+  "/static/js/bundle.js",
+  "/static/js/vendors~main.chunk.js",
+  "/static/js/main.chunk.js",
+  "/manifest.json",
+];
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(cacheStore)
+    caches.open(codeStore)
+    .then(cache => {
+      cache.addAll(codes)
+    });
+    caches.open(assetsStore)
     .then(cache => {
       cache.addAll(assets)
-    })
+    });
   )
-})
+});
 
 self.addEventListener('fetch', event => {
   event.respondWith(
@@ -36,7 +47,7 @@ self.addEventListener('fetch', event => {
         }
         let responseToCache = response.clone();
 
-        caches.open(cacheStore)
+        caches.open(assetsStore)
         .then(cache => {
           cache.put(event.request, responseToCache);
         });
@@ -48,7 +59,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-  let cacheAllowlist = [cacheStore];
+  let cacheAllowlist = [codeStore];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {

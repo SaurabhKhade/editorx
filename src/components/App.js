@@ -18,8 +18,9 @@ export default function App() {
           "BAKAPVbQoxbMnNW_J4Pt3Q-mKoLx-74d64DtbPBIkWUimStrDrPUyZ7rl_URh-uSSGQpAU2zvRXhEYOxU7Au29Y",
       });
       messaging.onMessage((payload) => {
-        let { body, title } = payload.notification;
-        notify(title, body);
+        let { body, title, tag } = payload.notification;
+        notify(title, body, tag);
+        console.log(tag);
       });
     }
   }, []);
@@ -43,12 +44,14 @@ export default function App() {
   );
 }
 
-function notify(title, body) {
+function notify(title, body, tag) {
   navigator.serviceWorker.getRegistration().then((reg) => {
     reg.showNotification(title, {
       body,
       icon: "/static/icon/favicon-96x96.png",
       badge: "/static/icon/badge.png",
+      tag,
+      vibrate: [100, 50, 100]
     });
   });
 }
