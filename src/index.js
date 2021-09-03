@@ -19,6 +19,7 @@ if ("serviceWorker" in navigator) {
       .register("/serviceWorker.js")
       .then(reg=>{
         setTimeout(()=>reg.update(), 5000);
+      })
       .catch((e) => e);
   });
 }
