@@ -17,8 +17,11 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
       .register("/serviceWorker.js")
-      .catch((e) => console.error(e));
+      .then(reg=>{
+        setTimeout(()=>reg.update(), 5000);
+      .catch((e) => e);
   });
 }
 // }
 Notification.requestPermission();
+
