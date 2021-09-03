@@ -5,12 +5,8 @@ const assets = [
   "/",
   "/index.html",
   "/static/webfonts/fonts.css",
-  "/static/js/bundle.js",
-  "/static/js/vendors~main.chunk.js",
-  "/static/js/main.chunk.js",
   "/static/images/logo-both.jpg",
-  "/static/images/logo-dark.png",
-  "/manifest.json",
+  "/static/images/logo-dark.png"
 ];
 const codes = [
   "/static/js/bundle.js",
