@@ -14,11 +14,12 @@
   --out-n: -2px;
   --spread: 0;
   --blur: 4px;
+  --color: hsla(0,0%,60%,.35);
   box-shadow: 
-  var(--out) var(--out) var(--blur) var(--spread) grey, 
-  var(--out-n) var(--out-n) var(--blur) var(--spread) grey,
-  var(--out) var(--out-n) var(--blur) var(--spread) grey,
-  var(--out-n) var(--out) var(--blur) var(--spread) grey;
+  var(--out) var(--out) var(--blur) var(--spread) var(--color), 
+  var(--out-n) var(--out-n) var(--blur) var(--spread) var(--color),
+  var(--out) var(--out-n) var(--blur) var(--spread) var(--color),
+  var(--out-n) var(--out) var(--blur) var(--spread) var(--color);
   
   
   --btn: red;

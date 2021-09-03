@@ -57,12 +57,20 @@
   /* border: 1px solid red; */
 }
 
+.home .reverse .img-wrapper{
+  order: 2;
+}
+
 .home section h3,.home section h4 {
   margin: 10px 0;
 }
 
 .home li {
   margin: .4em 0;
+}
+
+.home .offer {
+  list-style: "\00261E\0000a0\0000a0";
 }
 
 .home .content:first-letter {
@@ -78,6 +86,20 @@
   margin: 1em auto;
 }
 
+.home .keybindings-img-wrapper {
+  height: 180px;
+}
+
 .home section li a {
   font-weight: bold;
+}
+
+@media screen and (min-width: 600px) {
+  .home .content-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  .written-wrapper {
+    width: calc(100% - 200px);
+  }
 }

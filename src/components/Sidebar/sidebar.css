@@ -66,6 +66,19 @@
   background-color: hsla(0,0%,0%,.4);
 }
 
+.sidebar-toggle-icon {
+  position: fixed;
+  top: 10px;
+  /* right: 299px; */
+  z-index: 21;
+  font-size: 30px;
+  padding: 2px;
+  border: 1px solid var(--sidebar-border);
+  background-color: var(--sidebar);
+  color: var(--sidebar-color);
+  transition: right .2s ease;
+}
+
 @media screen and (min-width: 900px) {
   .sidebar {
     right: 0 !important;
@@ -73,6 +86,9 @@
   }
   .backdrop {
     display: none !important;
+  }
+  .sidebar-toggle-icon {
+    display: none;
   }
 }
 

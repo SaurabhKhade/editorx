@@ -1,4 +1,4 @@
-import { useConfig } from "../hooks";
+import { useConfig } from "../../hooks";
 
 export default function Switch({ label, labelFor, optional }) {
   const [config, setConfig] = useConfig();

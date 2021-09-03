@@ -1,7 +1,7 @@
 import './popup.css';
 import {FaDownload,FaEdit,FaWindowClose} from 'react-icons/fa';
 import {MdDelete} from 'react-icons/md';
-import {usePopup,useFileSystem} from '../hooks';
+import {usePopup,useFileSystem} from '../../hooks';
 import {useState} from 'react';
 
 export default function Popup() {

@@ -1,4 +1,4 @@
-const codeStore = "editorx-cache-codes-v8";
+const codeStore = "editorx-cache-codes-v9";
 const assetsStore = "editorx-cache-assets-v1";
 
 const assets = [
@@ -59,7 +59,7 @@ self.addEventListener('fetch', event => {
 });
 
 self.addEventListener('activate', event => {
-  let cacheAllowlist = [codeStore];
+  let cacheAllowlist = [codeStore,assetsStore];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {

@@ -1,6 +1,6 @@
 .run-btn{
-    height: 4rem;
-    width: 4rem;
+    height: 3rem;
+    width: 3rem;
     color: white;
     background-color: royalblue;
     position: fixed;
@@ -10,12 +10,12 @@
     border-radius: 50%;
     display: grid;
     place-items: center;
-    font-size: 25px;
+    font-size: 22px;
 }
 
 .run-btn > * {
     position: relative;
-    left: .16em;
+    left: .14em;
     top: .04em;
 }
 
@@ -65,10 +65,14 @@
     border-radius: 3px;
 }
 
+@media screen and (min-width: 900px) {
+  .run-btn {
+    right: 330px;
+  }
+}
 
-/* @media screen and (min-width: 400) {
-    .sidebar {
-      right: 0 !important;
-      font-size: 18px;
-    }
-  } */
+@media screen and (min-width: 1100px) {
+  .run-btn {
+    right: 380px;
+  }
+}

@@ -21,8 +21,8 @@ export default function Home() {
     </section>
     <hr />
     <section>
-      <h3>What we offer...</h3>
-      <ol>
+      <h3>&#9830; What we offer...</h3>
+      <ol className="offer">
         <li>
           <a href="#file-system">File System.</a>
         </li>
@@ -48,11 +48,11 @@ export default function Home() {
     </section>
     <hr />
     <section id="file-system">
-      <h3>File System</h3>
+      <h3>&#10004; File System</h3>
       <div className="content-wrapper">
         <div className="img-wrapper">
           <img src="/static/images/files.png" alt="File System" />
-      </div>
+        </div>
         <div className="written-wrapper">
           <p className="content">
             We offer an easy and interactive file system to easily handle multiple files. You can access it in <strong>Files</strong> tab in sidebar. All you have to do is just enter the file name and click on <strong>&#10004;</strong> symbol, our system will detect your programming language and will enable corresponding snippets for you. You must enter appropriate extension, our system will use this extension only to detect language. If our system failed to detect it, it will consider your file as plain text file.
@@ -65,7 +65,7 @@ export default function Home() {
     </section>
     <hr />
     <section id="editor-customizations">
-      <h3>Customize the Editor.</h3>
+      <h3>&#10004; Customize the Editor.</h3>
       <div className="content-wrapper reverse">
         <div className="img-wrapper">
           <img src="/static/images/config.png" alt="Customizations" />
@@ -79,11 +79,11 @@ export default function Home() {
     </section>
     <hr />
     <section id="fonts">
-      <h3>15+ Fonts.</h3>
+      <h3>&#10004; 15+ Fonts.</h3>
       <div className="content-wrapper">
         <div className="img-wrapper">
           <img src="/static/images/fonts.png" alt="Fonts" />
-      </div>
+        </div>
         <div className="written-wrapper">
           <p className="content">
             Not confortable with current font? dont worry!!! Just checkout Font styles tab. We have collected 15+ fonts for you which are most loved by world wide programmers. You can use any of them.
@@ -93,7 +93,7 @@ export default function Home() {
     </section>
     <hr />
     <section id="themes">
-      <h3>35+ Themes.</h3>
+      <h3>&#10004; 35+ Themes.</h3>
       <div className="content-wrapper reverse">
         <div className="img-wrapper">
           <img src="/static/images/themes.png" alt="Themes" />
@@ -107,9 +107,9 @@ export default function Home() {
     </section>
     <hr />
     <section id="keybinding">
-      <h3>4 Standard editors based keyboard shortcuts.</h3>
+      <h3>&#10004; 4 Standard editors based keyboard shortcuts.</h3>
       <div className="content-wrapper">
-        <div className="img-wrapper">
+        <div className="img-wrapper keybindings-img-wrapper">
           <img src="/static/images/keybindings.png" alt="KeyBindings" />
       </div>
         <div className="written-wrapper">
@@ -121,7 +121,7 @@ export default function Home() {
     </section>
     <hr />
     <section id="execute">
-      <h3>Execute 8 different languages.</h3>
+      <h3>&#10004; Execute 8 different languages.</h3>
       <div className="content-wrapper reverse">
         <div className="img-wrapper">
           <img src="/static/images/execute.png" alt="Execution" />
@@ -135,7 +135,7 @@ export default function Home() {
     </section>
     <hr />
     <section id="thanks">
-      <h3>Special Thanks.</h3>
+      <h3>&#9829; Special Thanks.</h3>
       <div className="content-wrapper">
         <ol>
           <li>

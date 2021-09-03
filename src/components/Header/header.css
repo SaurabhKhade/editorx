@@ -1,0 +1,62 @@
+.header {
+  height: 50px;
+  color: white;
+  font-size: 20px;
+  display: grid;
+  grid-template-columns: auto 50px;
+  align-items: center;
+  padding: 0 30px 0 20px;
+  background: linear-gradient(
+    to bottom,
+    hsl(0,0%,12%),
+    hsl(0,0%,10%)
+  );
+}
+
+.header .icons {
+  font-size: 1.5em;
+  padding: 5px;
+  font-weight: bold;
+  border-radius: .1em;
+  position: relative;
+  z-index: 15;
+  font-size: 1.7em;
+}
+
+.header p {
+  margin: 0;
+  width: 100%;
+  /* border: 1px solid red; */
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  /* border: 1px solid red; */
+}
+
+.header p::-webkit-scrollbar {
+  display: none;
+}
+
+.header span {
+  margin: 0;
+  font-size: .6em;
+  margin-right: 20px;
+  /* border: 1px solid red; */
+  text-transform: capitalize;
+}
+
+@media screen and (min-width: 900px) {
+  .icons {
+    /* display: none; */
+  }
+  .header div {
+    display: flex;
+    align-items: center;
+  }
+  .header p {
+    order: 2;
+  }
+  .header span {
+    font-size: 0.7em;
+  }
+}

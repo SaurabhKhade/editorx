@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useFileSystem, usePopup, usePallet } from "../hooks";
+import { useFileSystem, usePopup, usePallet } from "../../hooks";
 import { IoSettingsSharp } from "react-icons/io5";
 import "./file-system.css";
 

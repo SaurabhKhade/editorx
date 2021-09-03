@@ -1,23 +1,34 @@
 import "./sidebar.css";
 import "./settings.css";
-import Tab from "./tab";
-import Switch from "./switch";
-import Input from "./input";
-import HandleFiles from "./handleFiles";
-import Popup from "./popup";
+import Tab from "./Tab";
+import Switch from "./Switch";
+import Input from "./Input";
+import HandleFiles from "./Files";
+import Popup from "./Popup";
 import { useConfig, useTheme } from "../hooks";
 import { useState } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
 import {useSwipeable} from 'react-swipeable';
+import {RiMenuFoldLine,RiMenuUnfoldLine} from 'react-icons/ri';
 
 export default function Sidebar() {
   const [config, setConfig] = useConfig();
   const [childs, setChilds] = useState(0);
+  const [open, setOpen] = useState(false);
   const [theme, toggleTheme] = useTheme();
-  let [open, setOpen] = useState(false);
 
   const style = {
     right: open ? "0" : "-301px",
+  };
+
+  const iconOpenStyle = {
+    opacity: open ? "0" : "1",
+    right: open ? "299px" : "0px",
+    pointerEvents: open ? "none" : "all"
+  };
+  const iconCloseStyle = {
+    opacity: open ? "1" : "0",
+    right: open ? "299px" : "0px"
   };
 
   const btnStyle = {
@@ -86,6 +97,10 @@ export default function Sidebar() {
       </div>
       <Popup />
       <div className="sidebar" style={style} {...swipeCloseHandlers}>
+        
+        <RiMenuUnfoldLine className="sidebar-toggle-icon" style={iconCloseStyle} onClick={()=>setOpen(false)}/>
+        <RiMenuFoldLine className="sidebar-toggle-icon" style={iconOpenStyle} onClick={()=>setOpen(true)}/>
+        
         <div className="theme-toggle">
           <p>
             <HiSun />
@@ -100,7 +115,7 @@ export default function Sidebar() {
         <Tab caption="Files" childs={childs}>
           <HandleFiles setChilds={setChilds} sidebarOpen={setOpen} />
         </Tab>
-        <Tab caption="Settings" childs={12}>
+        <Tab caption="Editor Settings" childs={12}>
           <Input label="Font Size" labelFor="fontSize" />
           <Input label="Tab Size" labelFor="tabSize" />
           <Switch

@@ -1,4 +1,4 @@
-import {useConfig} from '../hooks';
+import {useConfig} from '../../hooks';
 import {useRef} from 'react';
 
 export default function Input({label,labelFor}) {

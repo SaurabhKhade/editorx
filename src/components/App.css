@@ -24,6 +24,7 @@ html {
   --home-link: hsl(240,100%,43.3%);
   --home-img-border: black;
 }
+
 html::-webkit-scrollbar, 
 body::-webkit-scrollbar, 
 #root::-webkit-scrollbar {
@@ -32,7 +33,8 @@ body::-webkit-scrollbar,
 
 body[data-theme='dark'] {
   --home-color: hsl(0,0%,100%);
-  --home-bg: hsl(0,0%,20%);
+  --home-bg: hsl(0,0%,12%);
+  /* --home-bg: hsl(0,0%,20%); */
   --sidebar-border: white;
   --toggler-color: yellow;
   --tab-bg: hsl(0,0%,23%);
@@ -54,8 +56,9 @@ body[data-theme='dark'] {
 
 .editor-wrapper {
   width: 100%;
-  height: calc(100% - 50px);
-  min-height: calc(100% - 50px);
+  /* height: 100vh; */
+  height: calc(100% - 90px);
+  /* min-height: calc(100% - 50px); */
 }
 
 .no-file {

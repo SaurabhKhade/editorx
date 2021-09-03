@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import Executer from "./Executer";
 import Home from "./Home";
 import Pallet from "./Pallet";
+import Header from "./Header";
 import { useFileSystem } from "./hooks";
 import { useEffect, useState } from "react";
 import { messaging } from "./firebase";
@@ -10,7 +11,7 @@ import "./App.css";
 
 export default function App() {
   const { files, loadedFile, updateFile } = useFileSystem();
-
+  
   useEffect(() => {
     if (Notification.permission === "granted") {
       messaging.getToken({
@@ -31,6 +32,7 @@ export default function App() {
       <Executer />
       {loadedFile ? (
         <>
+          <Header />
           <Pallet />
           <div className="editor-wrapper">
             <Editor {...files[loadedFile]} handleChange={updateFile} />
