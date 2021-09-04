@@ -1,15 +1,21 @@
 {
 	"short_name": "EditorX",
-	"name": "EditorX \n An online code editor and compiler",
+	"name": "EditorX: Online code editor and compiler",
 	"lang": "en",
 	"description": "An online code editor and compiler",
 	"start_url": "/",
-	"background_color": "#000000",
-	"theme_color": "#000000",
+	"background_color": "#161012",
+	"theme_color": "#1f1f1f",
 	"dir": "ltr",
 	"display": "standalone",
 	"orientation": "portrait-primary",
 	"icons": [
+		{
+			"src": "/static/icon/maskable_icon.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any maskable"
+		},
 		{
 			"src": "/static/icon/android-icon-512x512.png",
 			"type": "image/png",
