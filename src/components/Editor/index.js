@@ -1,121 +1,7 @@
 import React from "react";
 import Ace from "react-ace";
-import {useConfig} from '../hooks';
-
-// for actual code, skip to end of this page
-// Ace Modes
-import "ace-builds/src-noconflict/mode-actionscript";
-import "ace-builds/src-noconflict/mode-applescript";
-import "ace-builds/src-noconflict/mode-assembly_x86";
-import "ace-builds/src-noconflict/mode-batchfile";
-import "ace-builds/src-noconflict/mode-c_cpp";
-import "ace-builds/src-noconflict/mode-clojure";
-import "ace-builds/src-noconflict/mode-cobol";
-import "ace-builds/src-noconflict/mode-coffee";
-import "ace-builds/src-noconflict/mode-csharp";
-import "ace-builds/src-noconflict/mode-css";
-import "ace-builds/src-noconflict/mode-dart";
-import "ace-builds/src-noconflict/mode-dockerfile";
-import "ace-builds/src-noconflict/mode-dot";
-import "ace-builds/src-noconflict/mode-fortran";
-import "ace-builds/src-noconflict/mode-fsharp";
-import "ace-builds/src-noconflict/mode-gitignore";
-import "ace-builds/src-noconflict/mode-golang";
-import "ace-builds/src-noconflict/mode-graphqlschema";
-import "ace-builds/src-noconflict/mode-groovy";
-import "ace-builds/src-noconflict/mode-haml";
-import "ace-builds/src-noconflict/mode-haskell";
-import "ace-builds/src-noconflict/mode-html";
-import "ace-builds/src-noconflict/mode-jade";
-import "ace-builds/src-noconflict/mode-java";
-import "ace-builds/src-noconflict/mode-javascript";
-import "ace-builds/src-noconflict/mode-json";
-import "ace-builds/src-noconflict/mode-jsp";
-import "ace-builds/src-noconflict/mode-jsx";
-import "ace-builds/src-noconflict/mode-julia";
-import "ace-builds/src-noconflict/mode-kotlin";
-import "ace-builds/src-noconflict/mode-latex";
-import "ace-builds/src-noconflict/mode-less";
-import "ace-builds/src-noconflict/mode-livescript";
-import "ace-builds/src-noconflict/mode-lua";
-import "ace-builds/src-noconflict/mode-markdown";
-import "ace-builds/src-noconflict/mode-matlab";
-import "ace-builds/src-noconflict/mode-objectivec";
-import "ace-builds/src-noconflict/mode-pascal";
-import "ace-builds/src-noconflict/mode-perl";
-import "ace-builds/src-noconflict/mode-php";
-import "ace-builds/src-noconflict/mode-plain_text";
-import "ace-builds/src-noconflict/mode-powershell";
-import "ace-builds/src-noconflict/mode-python";
-import "ace-builds/src-noconflict/mode-r";
-import "ace-builds/src-noconflict/mode-ruby";
-import "ace-builds/src-noconflict/mode-rust";
-import "ace-builds/src-noconflict/mode-sass";
-import "ace-builds/src-noconflict/mode-scala";
-import "ace-builds/src-noconflict/mode-scss";
-import "ace-builds/src-noconflict/mode-sql";
-import "ace-builds/src-noconflict/mode-sqlserver";
-import "ace-builds/src-noconflict/mode-stylus";
-import "ace-builds/src-noconflict/mode-svg";
-import "ace-builds/src-noconflict/mode-swift";
-import "ace-builds/src-noconflict/mode-tsx";
-import "ace-builds/src-noconflict/mode-typescript";
-import "ace-builds/src-noconflict/mode-vbscript";
-import "ace-builds/src-noconflict/mode-xml";
-import "ace-builds/src-noconflict/mode-xquery";
-import "ace-builds/src-noconflict/mode-yaml";
-
-
-
-// Keybindings
-import "ace-builds/src-noconflict/keybinding-emacs";
-import "ace-builds/src-noconflict/keybinding-sublime";
-import "ace-builds/src-noconflict/keybinding-vim";
-import "ace-builds/src-noconflict/keybinding-vscode";
-
-
-
-// Ace Themes
-import "ace-builds/src-noconflict/theme-ambiance";
-import "ace-builds/src-noconflict/theme-chaos";
-import "ace-builds/src-noconflict/theme-chrome";
-import "ace-builds/src-noconflict/theme-clouds";
-import "ace-builds/src-noconflict/theme-clouds_midnight";
-import "ace-builds/src-noconflict/theme-cobalt";
-import "ace-builds/src-noconflict/theme-crimson_editor";
-import "ace-builds/src-noconflict/theme-dawn";
-import "ace-builds/src-noconflict/theme-dracula";
-import "ace-builds/src-noconflict/theme-dreamweaver";
-import "ace-builds/src-noconflict/theme-eclipse";
-import "ace-builds/src-noconflict/theme-github";
-import "ace-builds/src-noconflict/theme-gob";
-import "ace-builds/src-noconflict/theme-gruvbox";
-import "ace-builds/src-noconflict/theme-idle_fingers";
-import "ace-builds/src-noconflict/theme-iplastic";
-import "ace-builds/src-noconflict/theme-katzenmilch";
-import "ace-builds/src-noconflict/theme-kr_theme";
-import "ace-builds/src-noconflict/theme-kuroir";
-import "ace-builds/src-noconflict/theme-merbivore";
-import "ace-builds/src-noconflict/theme-merbivore_soft";
-import "ace-builds/src-noconflict/theme-mono_industrial";
-import "ace-builds/src-noconflict/theme-monokai";
-import "ace-builds/src-noconflict/theme-nord_dark";
-import "ace-builds/src-noconflict/theme-pastel_on_dark";
-import "ace-builds/src-noconflict/theme-solarized_dark";
-import "ace-builds/src-noconflict/theme-solarized_light";
-import "ace-builds/src-noconflict/theme-sqlserver";
-import "ace-builds/src-noconflict/theme-terminal";
-import "ace-builds/src-noconflict/theme-textmate";
-import "ace-builds/src-noconflict/theme-tomorrow";
-import "ace-builds/src-noconflict/theme-tomorrow_night";
-import "ace-builds/src-noconflict/theme-tomorrow_night_blue";
-import "ace-builds/src-noconflict/theme-tomorrow_night_bright";
-import "ace-builds/src-noconflict/theme-tomorrow_night_eighties";
-import "ace-builds/src-noconflict/theme-twilight";
-import "ace-builds/src-noconflict/theme-vibrant_ink";
-import "ace-builds/src-noconflict/theme-xcode";
-
-
+import "ace-builds/webpack-resolver";
+import { useConfig } from "../hooks";
 
 // Ace Snippets
 import "ace-builds/src-noconflict/snippets/actionscript";
@@ -183,31 +69,24 @@ import "ace-builds/src-noconflict/snippets/xml";
 import "ace-builds/src-noconflict/snippets/xquery";
 import "ace-builds/src-noconflict/snippets/yaml";
 
-
-
 // Language tools
 import "ace-builds/src-noconflict/ext-language_tools"
 import "ace-builds/src-noconflict/ext-keybinding_menu";
 
-
-
 // Editor Code
-export default function Editor({language,placeholder,handleChange,code}) {
+export default function Editor({ language, placeholder, handleChange, code }) {
   let [config] = useConfig();
   return (
     <Ace
-      mode = {language}
-      width = "100%"
-      height = "100%"
-      placeholder = {placeholder}
-      showPrintMargin = {true}
-      onChange = {handleChange}
+      mode={language}
+      width="100%"
+      height="100%"
+      placeholder={placeholder}
+      showPrintMargin={true}
+      onChange={handleChange}
       value={code}
       {...config}
-      editorProps = {{$blockScrolling:true}}
-      onLoad={()=>{
-        window.ace.config.set('basePath',`${process.env.PUBLIC_URL}/static/aceBuilds`);
-      }}
-      />
+      editorProps={{ $blockScrolling: true }}
+    />
   );
 }

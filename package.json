@@ -32,6 +32,7 @@
   ],
   "dependencies": {
     "@loadable/component": "^5.15.0",
+    "ace-builds": "^1.4.12",
     "axios": "^0.21.1",
     "firebase": "8.9.1",
     "react": "^17.0.2",

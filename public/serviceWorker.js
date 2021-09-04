@@ -1,19 +1,15 @@
-const codeStore = "editorx-codes-cache-v5";
-const assetsStore = "editorx-assets-cache-v5";
+const codeStore = "editorx-codes-cache-v1";
+const assetsStore = "editorx-assets-cache-v1";
+const staticStore = "editorx-static-cache-v1";
 
 const assets = [
   "/",
   "/index.html",
-  "/static/webfonts/fonts.css",
   "/static/images/logo-both.jpg",
   "/static/images/logo-dark.png",
 ];
-const codes = [
-  "/static/js/bundle.js",
-  "/static/js/vendors~main.chunk.js",
-  "/static/js/main.chunk.js",
-  "/manifest.json",
-];
+const codes = ["main.18873b69.chunk.css", "main.89bf6f77.chunk.js"];
+const statics = ["/static/webfonts/fonts.css"];
 
 const allCacheStores = [
   {
@@ -23,6 +19,10 @@ const allCacheStores = [
   {
     name: assetsStore,
     links: assets,
+  },
+  {
+    name: staticStore,
+    links: statics,
   },
 ];
 
@@ -50,15 +50,19 @@ self.addEventListener("fetch", (event) => {
           return response;
         }
         let responseToCache = response.clone();
-        let isCode = false;
-        for (let i of codes) {
-          if (event.request.url.includes(i)) {
-            isCode = true;
-            break;
-          }
-        }
-        if (isCode) {
+        
+        if (
+          event.request.url.includes(".chunk.js") ||
+          event.request.url.includes(".chunk.css")
+        ) {
           caches.open(codeStore).then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+        } else if (
+          event.request.url.includes("webfonts") ||
+          event.request.url.includes(".js")
+        ) {
+          caches.open(staticStore).then((cache) => {
             cache.put(event.request, responseToCache);
           });
         } else {
@@ -74,7 +78,7 @@ self.addEventListener("fetch", (event) => {
 });
 
 self.addEventListener("activate", (event) => {
-  let whitelist = [codeStore, assetsStore];
+  let whitelist = [codeStore, assetsStore, staticStore];
 
   event.waitUntil(
     caches.keys().then((cacheNames) => {
