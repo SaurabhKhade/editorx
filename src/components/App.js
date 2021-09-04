@@ -1,13 +1,18 @@
-import Editor from "./Editor";
-import Sidebar from "./Sidebar";
-import Executer from "./Executer";
-import Home from "./Home";
-import Pallet from "./Pallet";
-import Header from "./Header";
+//non components
+import "./App.css";
 import { useFileSystem } from "./hooks";
 import { useEffect, useState } from "react";
 import { messaging } from "./firebase";
-import "./App.css";
+import loadable from '@loadable/component';
+
+//components
+const Editor = loadable(() => import('./Editor'));
+const Sidebar = loadable(() => import('./Sidebar'));
+const Executer = loadable(() => import('./Executer'));
+const Home = loadable(() => import('./Home'));
+const Pallet = loadable(() => import('./Pallet'));
+const Header = loadable(() => import('./Header'));
+
 
 export default function App() {
   const { files, loadedFile, updateFile } = useFileSystem();

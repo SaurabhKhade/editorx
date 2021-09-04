@@ -1,15 +1,20 @@
+// non components
 import "./sidebar.css";
 import "./settings.css";
-import Tab from "./Tab";
-import Switch from "./Switch";
-import Input from "./Input";
-import HandleFiles from "./Files";
-import Popup from "./Popup";
 import { useConfig, useTheme } from "../hooks";
 import { useState } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
 import {useSwipeable} from 'react-swipeable';
+import loadable from '@loadable/component';
+
+// components
 import {RiMenuFoldLine,RiMenuUnfoldLine} from 'react-icons/ri';
+const Tab = loadable(() => import('./Tab'));
+const Switch = loadable(() => import('./Switch'));
+const Input = loadable(() => import('./Input'));
+const HandleFiles = loadable(() => import('./Files'));
+const Popup = loadable(() => import('./Popup'));
+
 
 export default function Sidebar() {
   const [config, setConfig] = useConfig();

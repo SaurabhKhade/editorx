@@ -1,6 +1,5 @@
 import "./home.css";
 import { useTheme } from "../hooks";
-import LazyLoad from "react-lazyload";
 
 export default function Home() {
   const [theme] = useTheme();
@@ -15,7 +14,6 @@ export default function Home() {
         <h3>Welcome to</h3>
         <h1>EditorX</h1>
       </div>
-      <LazyLoad height={200} offset={-100} once>
         <section>
           <p className="content">
             Welcome to <strong>EditorX</strong>, an Online code editor based on{" "}
@@ -29,9 +27,7 @@ export default function Home() {
             snippets, advance keyboard shortcuts and many more.
           </p>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={-100} once>
         <section>
           <h3>&#9830; What we offer...</h3>
           <ol className="offer">
@@ -60,9 +56,7 @@ export default function Home() {
             </li>
           </ol>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={-100} once>
         <section id="file-system">
           <h3>&#10004; File System</h3>
           <div className="content-wrapper">
@@ -107,9 +101,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={-100} once>
         <section id="fonts">
           <h3>&#10004; 15+ Fonts.</h3>
           <div className="content-wrapper">
@@ -125,9 +117,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={100} once>
         <section id="themes">
           <h3>&#10004; 35+ Themes.</h3>
           <div className="content-wrapper reverse">
@@ -146,9 +136,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={100} once>
         <section id="keybinding">
           <h3>&#10004; 4 Standard editors based keyboard shortcuts.</h3>
           <div className="content-wrapper">
@@ -165,9 +153,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={100} once>
         <section id="execute">
           <h3>&#10004; Execute 8 different languages.</h3>
           <div className="content-wrapper reverse">
@@ -187,9 +173,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-      </LazyLoad>
       <hr />
-      <LazyLoad height={200} offset={100} once>
         <section id="thanks">
           <h3>&#9829; Special Thanks.</h3>
           <div className="content-wrapper">
@@ -229,7 +213,6 @@ export default function Home() {
             </ol>
           </div>
         </section>
-      </LazyLoad>
     </div>
   );
 }
