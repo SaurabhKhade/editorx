@@ -1,5 +1,5 @@
-const codeStore = "editorx-cache-codes-v10";
-const assetsStore = "editorx-cache-assets-v2";
+const codeStore = "editorx-codes-cache-v2";
+const assetsStore = "editorx-assets-cache-v3";
 
 const assets = [
   "/",
@@ -15,55 +15,59 @@ const codes = [
   "/manifest.json",
 ];
 
+const allCacheStores = [
+  {
+    name: codeStore,
+    links: codes
+  },
+  {
+    name: assetsStore,
+    links: assets
+  }
+];
+
 self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(codeStore)
-    .then(cache => {
-      cache.addAll(codes)
-    });
-    caches.open(assetsStore)
-    .then(cache => {
-      cache.addAll(assets)
-    });
-  )
+  event.waitUntil(Promise.all(
+    allCacheStores.map(cacheStore => {
+      return caches.open(cacheStore.name).then(cache => {
+        return cache.addAll(cacheStore.links);
+      })
+    )
+  ));
 });
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
     .then(response => {
-      if (response) {
+      if (!response) {
+        throw Error;
+      } else if (response.status !== 200 || response.type !== 'basic') {
         return response;
       }
+      let responseToCache = response.clone();
 
-      return fetch(event.request)
-      .then(response => {
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
-        let responseToCache = response.clone();
-
-        caches.open(assetsStore)
-        .then(cache => {
-          cache.put(event.request, responseToCache);
-        });
-
-        return response;
+      caches.open(assetsStore)
+      .then(cache => {
+        cache.put(event.request, responseToCache);
       });
+
+      return response;
+    })
+    .catch(()=>{
+      return caches.match(event.request);
     })
   );
 });
 
 self.addEventListener('activate', event => {
-  let cacheAllowlist = [codeStore,assetsStore];
+  let whitelist = [codeStore,assetsStore];
 
   event.waitUntil(
     caches.keys().then(cacheNames => {
       return Promise.all(
         cacheNames.map(cacheName => {
-          if (cacheAllowlist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
+          if (!whitelist.includes(cacheName)) return caches.delete(cacheName);
         })
       );
     })
