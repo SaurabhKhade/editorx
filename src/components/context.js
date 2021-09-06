@@ -86,7 +86,7 @@ function ContextProvider({children}) {
 }
 
 const defaultConfig = {
-  theme: "monokai",
+  theme: "chaos",
   fontSize: 14,
   showGutter: true,
   highlightActiveLine: true,
