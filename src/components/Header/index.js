@@ -5,8 +5,8 @@ import {HiDotsVertical} from 'react-icons/hi';
 export default function Header() {
   const {files,loadedFile} = useFileSystem();
   const [,setPopup] = usePopup();
-  const language = files[loadedFile].language;
-  
+  let language = files[loadedFile].language;
+  language = language.split("_").join("/");
   return (
     <div className="header">
       <div>

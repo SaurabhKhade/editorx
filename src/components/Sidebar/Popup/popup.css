@@ -34,6 +34,12 @@
 .popup h3 {
   overflow-x: scroll;
   text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.popup h3::-webkit-scrollbar {
+  display: none;
 }
 
 .popup button {

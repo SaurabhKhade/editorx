@@ -1,4 +1,4 @@
-const codeStore = "editorx-codes-cache-v1";
+const codeStore = "editorx-codes-cache-v1.1";
 const assetsStore = "editorx-assets-cache-v1";
 const staticStore = "editorx-static-cache-v1";
 

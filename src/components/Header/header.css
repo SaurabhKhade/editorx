@@ -42,7 +42,7 @@
   font-size: .6em;
   margin-right: 20px;
   /* border: 1px solid red; */
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 @media screen and (min-width: 900px) {
@@ -51,7 +51,8 @@
   }
   .header div {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    align-items: flex-end;
   }
   .header p {
     order: 2;
