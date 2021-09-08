@@ -18,19 +18,20 @@ export default function App() {
   const { files, loadedFile, updateFile } = useFileSystem();
   
   useEffect(() => {
-    if (Notification.permission === "granted") {
-      messaging.getToken({
-        vapidKey:
-          "BAKAPVbQoxbMnNW_J4Pt3Q-mKoLx-74d64DtbPBIkWUimStrDrPUyZ7rl_URh-uSSGQpAU2zvRXhEYOxU7Au29Y",
-      })
-      .catch(e=>{
-        alert("Your browser doesn't support notifications.");
-      });
-      messaging.onMessage((payload) => {
-        let { body, title, tag } = payload.notification;
-        notify(title, body, tag);
-        console.log(tag);
-      });
+    try {
+      if (Notification.permission === "granted") {
+        messaging.getToken({
+          vapidKey:
+            "BAKAPVbQoxbMnNW_J4Pt3Q-mKoLx-74d64DtbPBIkWUimStrDrPUyZ7rl_URh-uSSGQpAU2zvRXhEYOxU7Au29Y",
+        });
+        messaging.onMessage((payload) => {
+          let { body, title, tag } = payload.notification;
+          notify(title, body, tag);
+          console.log(tag);
+        });
+      }
+    } catch (e) {
+      alert("Your browser doesn't support notifications.");
     }
   }, []);
 
