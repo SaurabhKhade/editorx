@@ -3,22 +3,22 @@ import { useFileSystem, usePopup, usePallet } from "../../hooks";
 import { IoSettingsSharp } from "react-icons/io5";
 import "./file-system.css";
 
-export default function HandleFiles({ setChilds,sidebarOpen}) {
+export default function HandleFiles({ setChilds, sidebarOpen }) {
   const system = useFileSystem();
   const [, setPopup] = usePopup();
-  const[,setPallet] = usePallet();
+  const [, setPallet] = usePallet();
 
   useEffect(() => {
     let childs = Object.keys(system.files).length;
     setChilds(childs + 1);
     // eslint-disable-next-line
   }, [system.files]);
-  
+
   function loader(file) {
     system.setLoadedFile(file);
-    setPallet(old=>{
+    setPallet((old) => {
       if (!old.includes(file)) {
-        return [...old,file];
+        return [...old, file];
       }
       return old;
     });
@@ -43,7 +43,7 @@ export default function HandleFiles({ setChilds,sidebarOpen}) {
 
 function CreateFiles({ create }) {
   const [open, setOpen] = useState(false);
-  const [fileName, setFileName] = useState("");
+  const [, setFileName] = useState("");
 
   const label = {
     left: open ? "-100%" : "0",
@@ -53,11 +53,20 @@ function CreateFiles({ create }) {
   };
 
   function submit() {
-    if (fileName.trim() === '') {
-      return alert('Please enter valid name!');
+    setFileName((oldName) => {
+      if (oldName.trim() === "") {
+        alert("Please enter valid name!");
+      } else {
+        create(oldName);
+      }
+      return "";
+    });
+  }
+
+  function checkKey(e) {
+    if (e.keyCode === 13) {
+      submit();
     }
-    setFileName("");
-    create(fileName);
   }
 
   return (
@@ -66,7 +75,11 @@ function CreateFiles({ create }) {
         <p>Add new File</p>
       </div>
       <div style={field} className="field">
-        <input type="text" onChange={(e) => setFileName(e.target.value)} />
+        <input
+          type="text"
+          onKeyUp={checkKey}
+          onChange={(e) => setFileName(e.target.value)}
+        />
         <button onClick={submit}>&#10003;</button>
         <button onClick={() => setOpen(false)}>X</button>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./tab.css";
+import {FaChevronRight} from "react-icons/fa"
 
 export default function Tab({ caption, children, childs, setVisible, DataManager }) {
   const [open, setOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Tab({ caption, children, childs, setVisible, DataManager
   return (
     <div className="tab" style={style}>
       <p onClick={clickHandler} className="tab-label">
-        <span style={arrow}>&gt;</span>&nbsp;&nbsp;
+        <span style={arrow}><FaChevronRight/></span>&nbsp;&nbsp;
         {caption}
       </p>
       <div className="tab-hidden">{children}</div>
