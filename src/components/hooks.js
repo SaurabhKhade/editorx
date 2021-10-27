@@ -110,7 +110,9 @@ export function useFileSystem() {
   function deleteFile(name) {
     setFiles((old) => {
       delete old[name];
-      return { ...old };
+      let update = { ...old };
+      updateSource(update);
+      return update;
     });
     setPallet((old) => {
       let remain = old.filter((i) => i !== name);
@@ -157,10 +159,3 @@ function makeFile(name) {
   let fileObj = detector(name);
   return { ...fileObj, code: "" };
 }
-
-// [name]: {
-//   language: 'xyz',
-//   logo: 'static/xyz.png',
-//   placeholder: 'blah blah',
-//   code: 'xyz.print("hello")',
-// }
