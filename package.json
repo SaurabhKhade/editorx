@@ -34,22 +34,19 @@
     "@loadable/component": "^5.15.0",
     "ace-builds": "^1.4.12",
     "axios": "^0.21.1",
-    "firebase": "8.9.1",
     "react": "^17.0.2",
     "react-ace": "^9.4.3",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-scripts": "4.0.3",
-    "react-swipeable": "^6.1.2",
-    "sloc": "^0.2.1"
+    "react-swipeable": "^6.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve -s build -p 4000",
-    "sloc": "sloc --format cli-table \\\n--keys total,source,comment src/"
+    "serve": "serve -s build -p 4000"
   },
   "eslintConfig": {
     "extends": [

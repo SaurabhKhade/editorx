@@ -15,6 +15,7 @@
 
 .tab .tab-label {
   font-weight: bold;
+  user-select: none;
 }
 
 .tab > p, .tab-hidden > div, .tab-hidden > p {

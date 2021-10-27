@@ -1,0 +1,50 @@
+.DataManager {
+  height: 250px;
+  width: 250px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 25;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  background: radial-gradient(at top left, #fff, #eee, #ddd);
+}
+
+.DataManager .button {
+  /* border: 1px solid green; */
+  background-color: rgb(12, 179, 12);
+  display: inline-block;
+  padding: .8em 1em;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: .2em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.DataManager .button p {
+  margin: 0;
+}
+
+.DataManager .button.danger {
+  background-color: rgb(224, 35, 35);
+}
+
+.DataManager .whitebg {
+  border-radius: 5px;
+  background: radial-gradient(at top left, #fff, #eee, #ddd);
+}
+
+.DataManager.flex-column,.DataManager .flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.warning {
+  font-size: .8em;
+  margin: 0 10px;
+  color: rgb(139, 21, 0);
+}

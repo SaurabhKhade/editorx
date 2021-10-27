@@ -14,6 +14,7 @@ const Switch = loadable(() => import('./Switch'));
 const Input = loadable(() => import('./Input'));
 const HandleFiles = loadable(() => import('./Files'));
 const Popup = loadable(() => import('./Popup'));
+const DataManager = loadable(()=> import("./DataManager"));
 
 
 export default function Sidebar() {
@@ -21,6 +22,7 @@ export default function Sidebar() {
   const [childs, setChilds] = useState(0);
   const [open, setOpen] = useState(false);
   const [theme, toggleTheme] = useTheme();
+  const [visible,setVisible] = useState(false)
 
   const style = {
     right: open ? "0" : "-301px",
@@ -101,6 +103,7 @@ export default function Sidebar() {
       <div className="sidebar-toggle-handler" {...swipeOpenHandlers}>
       </div>
       <Popup />
+      <DataManager visible={visible} setVisible={setVisible}/>
       <div className="sidebar" style={style} {...swipeCloseHandlers}>
         
         <RiMenuUnfoldLine className="sidebar-toggle-icon" style={iconCloseStyle} onClick={()=>setOpen(false)}/>
@@ -160,12 +163,7 @@ export default function Sidebar() {
         <Tab caption="Font Style" childs={fontfamilies.length}>
           {fontfamilies.map(renderFonts)}
         </Tab>
-        {Notification.permission !== "granted" ? (
-          <Tab caption="Allow Notification" childs={0} notify>
-          </Tab>
-        ) : (
-          <></>
-        )}
+        <Tab caption="Backup or Restore" DataManager setVisible={setVisible}></Tab>
       </div>
     </>
   );

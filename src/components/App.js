@@ -2,7 +2,6 @@
 import "./App.css";
 import { useFileSystem } from "./hooks";
 import { useEffect, useState } from "react";
-import { messaging } from "./firebase";
 import loadable from '@loadable/component';
 
 //components
@@ -16,23 +15,6 @@ const Header = loadable(() => import('./Header'));
 
 export default function App() {
   const { files, loadedFile, updateFile } = useFileSystem();
-  
-  useEffect(() => {
-    if (Notification.permission === "granted") {
-      messaging.getToken({
-        vapidKey:
-          "BAKAPVbQoxbMnNW_J4Pt3Q-mKoLx-74d64DtbPBIkWUimStrDrPUyZ7rl_URh-uSSGQpAU2zvRXhEYOxU7Au29Y",
-      })
-      .catch(e=>{
-        alert("Your browser doesn't support notifications.");
-      });
-      messaging.onMessage((payload) => {
-        let { body, title, tag } = payload.notification;
-        notify(title, body, tag);
-        console.log(tag);
-      });
-    }
-  }, []);
 
   return (
     <>
@@ -52,18 +34,6 @@ export default function App() {
       <Sidebar />
     </>
   );
-}
-
-function notify(title, body, tag) {
-  navigator.serviceWorker.getRegistration().then((reg) => {
-    reg.showNotification(title, {
-      body,
-      icon: "/static/icon/favicon-96x96.png",
-      badge: "/static/icon/badge.png",
-      tag,
-      vibrate: [100, 50, 100]
-    });
-  });
 }
 
 function Instruction() {

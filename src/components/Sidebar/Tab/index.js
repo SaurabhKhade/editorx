@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./tab.css";
 
-export default function Tab({ caption, children, childs, notify }) {
+export default function Tab({ caption, children, childs, setVisible, DataManager }) {
   const [open, setOpen] = useState(false);
   const height = 40;
   const style = {
@@ -11,14 +11,12 @@ export default function Tab({ caption, children, childs, notify }) {
   const arrow = {
     transform: `rotate(${open ? 90 : 0}deg)`,
     transition: "transform .1s ease",
+    opacity: caption==="Backup or Restore"?"0":"1"
   };
 
   function clickHandler() {
-    if (notify)
-      return alert(
-        "Kindly Allow notifications so we can inform you about the updates in future."
-      );
     setOpen((old) => !old);
+    DataManager && setVisible(old=>!old);
   }
 
   return (

@@ -16,9 +16,6 @@ function EditorContext({children}) {
     let saved = localStorage.getItem("editorConfig");
     if (saved) {
       saved = JSON.parse(saved);
-      if(saved.setOptions === undefined) {
-        saved.setOptions = defaultUpdates;
-      }
       setConfig(saved);
     }
   },[]);
@@ -107,15 +104,3 @@ const defaultConfig = {
     useWorker: false
   }
 };
-
-const defaultUpdates = {
-  highlightSelectedWord: true,
-  readOnly: false,
-  cursorStyle: "ace",
-  enableMultiselect: true,
-  useWorker: false,
-};
-
-
-// cursorStyle: "ace"|"slim"|"smooth"|"wide"
-// all above  should in setOptions as object
