@@ -15,6 +15,7 @@ export default function HandleFiles({ setChilds, sidebarOpen }) {
   }, [system.files]);
 
   function loader(file) {
+    sessionStorage.setItem("current-file",file);
     system.setLoadedFile(file);
     setPallet((old) => {
       if (!old.includes(file)) {
