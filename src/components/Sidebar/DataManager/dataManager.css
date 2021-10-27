@@ -21,6 +21,8 @@
   border-radius: .2em;
   cursor: pointer;
   user-select: none;
+  width: 75%;
+  text-align: center;
 }
 
 .DataManager .button p {
