@@ -60,14 +60,6 @@ function CreateFiles({ create }) {
       create(fileName);
       setFileName("");
     }
-    // setFileName((oldName) => {
-    //   if (oldName.trim() === "") {
-    //     alert("Please enter valid name!");
-    //   } else {
-    //     create(oldName);
-    //   }
-    //   return "";
-    // });
   }
 
   function checkKey(e) {
