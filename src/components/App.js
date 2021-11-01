@@ -41,7 +41,6 @@ function Instruction({setLoadedFile}) {
 
   useEffect(() => {
     let current_file = sessionStorage.getItem("current-file");
-    console.log(current_file);
     if (current_file) {
       setLoadedFile(current_file);
       setPallet([current_file]);

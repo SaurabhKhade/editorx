@@ -3,9 +3,9 @@
   align-items: center;
   height: 50px;
   padding: 0 10px;
-  background-color: hsl(0, 0%, 10%);
-  color: white;
-  border-bottom: 1px solid white;
+  background-color: var(--pallet-bg);
+  color: var(--pallet-color);
+  border-bottom: 1px solid var(--pallet-bb);
   gap: 10px;
   overflow-x: scroll;
   -ms-overflow-style: none;

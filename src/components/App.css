@@ -23,6 +23,15 @@ html {
   --toggler-color: rgb(17, 17, 17);
   --home-link: hsl(240,100%,43.3%);
   --home-img-border: black;
+  --pallet-color: white;
+  --pallet-bg: hsl(0,0%,95%);
+  --pallet-bb: black;
+  --header-color: black;
+  --header-bg: linear-gradient(
+    to bottom,
+    hsl(0,0%,85%),
+    hsl(0,0%,95%)
+  );
 }
 
 html::-webkit-scrollbar, 
@@ -43,6 +52,14 @@ body[data-theme='dark'] {
   --sidebar: hsl(0,0%,12%);
   --home-link: rgb(255, 166, 0);
   --home-img-border: white;
+  --pallet-bg: hsl(0, 0%, 10%);
+  --pallet-bb: white;
+  --header-color: white;
+  --header-bg: linear-gradient(
+    to bottom,
+    hsl(0,0%,12%),
+    hsl(0,0%,10%)
+  );
 }
 
 * {

@@ -44,7 +44,7 @@ export default function HandleFiles({ setChilds, sidebarOpen }) {
 
 function CreateFiles({ create }) {
   const [open, setOpen] = useState(false);
-  const [, setFileName] = useState("");
+  const [fileName, setFileName] = useState("");
 
   const label = {
     left: open ? "-100%" : "0",
@@ -54,14 +54,20 @@ function CreateFiles({ create }) {
   };
 
   function submit() {
-    setFileName((oldName) => {
-      if (oldName.trim() === "") {
-        alert("Please enter valid name!");
-      } else {
-        create(oldName);
-      }
-      return "";
-    });
+    if (fileName.trim() === "") {
+      alert("Please enter valid name!");
+    } else {
+      create(fileName);
+      setFileName("");
+    }
+    // setFileName((oldName) => {
+    //   if (oldName.trim() === "") {
+    //     alert("Please enter valid name!");
+    //   } else {
+    //     create(oldName);
+    //   }
+    //   return "";
+    // });
   }
 
   function checkKey(e) {
@@ -80,6 +86,7 @@ function CreateFiles({ create }) {
           type="text"
           onKeyUp={checkKey}
           onChange={(e) => setFileName(e.target.value)}
+          value={fileName}
         />
         <button onClick={submit}>&#10003;</button>
         <button onClick={() => setOpen(false)}>X</button>
