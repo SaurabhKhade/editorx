@@ -67,7 +67,7 @@
 }
 
 .home .offer {
-  list-style: "\00261E\0000a0\0000a0";
+  list-style: none;
 }
 
 .home .content:first-letter {
@@ -96,12 +96,35 @@
   font-weight: bold;
 }
 
+.home .list-icon {
+  margin-right: 15px;
+}
+
+.home h3 {
+  display: flex;
+  align-items: center;
+}
+
+.home h3.center {
+  justify-content: center;
+}
+
+.home h1 {
+  font-size: 3em;
+}
+
+.home .version {
+  color: var(--home-link);
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .home .content-wrapper {
     display: flex;
     gap: 20px;
   }
-  .written-wrapper {
+  .home .written-wrapper {
     width: calc(100% - 200px);
   }
 }

@@ -18,7 +18,10 @@ export default function File({name}) {
     setPallet((old) => {
       let remain = old.filter((i) => i !== name);
       if (name === loadedFile) {
-        if (remain.length === 0) setLoadedFile(undefined);
+        if (remain.length === 0){
+          sessionStorage.removeItem("current-file")
+          setLoadedFile(undefined);
+        }
         else setLoadedFile(remain[0]);
       }
       return remain;
