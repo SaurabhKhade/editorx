@@ -10,14 +10,14 @@
 Welcome to **EditorX**, an Online code editor based on  **[Ace.JS](https://ace.c9.io/)**. Every developer must use this for best coding experience with syntax highlighting, live code autocompletion, standard code snippets, advance keyboard shortcuts and many more.
    
 ## What We Offer
-1.  **[File System.](#file-system)**
-2.  **[Customize the Editor.](#customize-the-editor)**
-3.  **[15+ Fonts.](#fonts)**
-4.  **[35+ Themes.](#themes)**
-5.  **[4 Standard editors based keyboard shortcuts.](#standard-editors-based-keyboard-shortcuts)**
-7.  **[Execute 8 different languages.](#execute-8-different-languages)**
-8.  **[Special Thanks](#special-thanks)**
-9.  **[Our Team](#our-team)**
+1.  **File System**
+2.  **Customize the Editor**
+3.  **15+ Fonts**
+4.  **35+ Themes**
+5.  **4 Standard editors based keyboard shortcuts**
+7.  **Execute 8 different languages**
+8.  **Special Thanks**
+9.  **Our Team**
 
 ## File System
 <p align="center">
