@@ -1,4 +1,4 @@
-const codeStore = "editorx-codes-cache-v2.4";
+const codeStore = "editorx-codes-cache-v3";
 const assetsStore = "editorx-assets-cache-v1";
 const staticStore = "editorx-static-cache-v2";
 
@@ -50,7 +50,7 @@ self.addEventListener("fetch", (event) => {
           return response;
         }
         let responseToCache = response.clone();
-        
+
         if (
           event.request.url.includes(".chunk.js") ||
           event.request.url.includes(".chunk.css")

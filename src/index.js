@@ -15,18 +15,16 @@ ReactDOM.render(
 if (process.env.NODE_ENV === "production") {
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/serviceWorker.js")
-        .catch((e) => e);
-    });
-  }
-} else {
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker
-        .register("/serviceWorker-dev.js")
-        .catch((e) => e);
+      navigator.serviceWorker.register("/serviceWorker.js").catch((e) => e);
     });
   }
 }
-Notification.requestPermission();
+// else {
+//   if ("serviceWorker" in navigator) {
+//     window.addEventListener("load", () => {
+//       navigator.serviceWorker
+//         .register("/serviceWorker-dev.js")
+//         .catch((e) => e);
+//     });
+//   }
+// }
