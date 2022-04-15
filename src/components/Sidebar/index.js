@@ -257,7 +257,7 @@ function MakeItem({ item, click, match }) {
   );
 }
 
-const url = `http://localhost:4000/api/sync`;
+const url = `https://editorx-api.vercel.app/api/sync`;
 
 async function uploadSettings(id) {
   let config = localStorage.getItem("editorConfig");

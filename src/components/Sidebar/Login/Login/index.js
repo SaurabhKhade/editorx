@@ -8,7 +8,8 @@ export default function Login({ open, setOpen }) {
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const url = "http://localhost:4000/api/login";
+  // const url = "http://localhost:4000/api/login";
+  const url = "https://editorx-api.vercel.app/api/login";
 
   function login() {
     if (email === "") {

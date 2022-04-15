@@ -10,7 +10,7 @@ export default function Signup({ open, setOpen }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confPassword, setConfPassword] = useState("");
-  const url = "http://localhost:4000/api/signup";
+  const url = "https://editorx-api.vercel.app/api/signup";
 
   function signup() {
     if (email === "") {
