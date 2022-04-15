@@ -1,6 +1,6 @@
-const codeStore = "editorx-codes-cache-v2";
-const assetsStore = "editorx-assets-cache-v2";
-const staticStore = "editorx-static-cache-v2";
+const codeStore = "editorx-codes-cache-v3";
+const assetsStore = "editorx-assets-cache-v3";
+const staticStore = "editorx-static-cache-v3";
 
 const assets = [
   "/",
@@ -50,7 +50,7 @@ self.addEventListener("fetch", (event) => {
           return response;
         }
         let responseToCache = response.clone();
-        
+
         if (
           event.request.url.includes(".chunk.js") ||
           event.request.url.includes(".chunk.css")
@@ -90,7 +90,6 @@ self.addEventListener("activate", (event) => {
     })
   );
 });
-
 
 // const codeStore = "editorx-codes-cache-v5";
 // const assetsStore = "editorx-assets-cache-v5";
@@ -159,7 +158,7 @@ self.addEventListener("activate", (event) => {
 //               cache.put(event.request, responseToCache);
 //             });
 //           }
-          
+
 //           return response;
 //         }
 //       })
