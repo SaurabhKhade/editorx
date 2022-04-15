@@ -276,6 +276,17 @@ export default function Home() {
                 </a>
               </strong>
             </li>
+            <li>
+              <strong>
+                <a
+                  href="https://www.instagram.com/mahesh.kesgire/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Mahesh Kesgire
+                </a>
+              </strong>
+            </li>
           </ul>
         </div>
       </section>
