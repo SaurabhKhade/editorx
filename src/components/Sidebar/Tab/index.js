@@ -20,10 +20,18 @@ export default function Tab({
     transform: `rotate(${open ? 90 : 0}deg)`,
     transition: "transform .1s ease",
     opacity:
-      caption === "Backup or Restore" || caption === "LogIn/SignUp" ? "0" : "1",
+      caption === "Backup or Restore" ||
+      caption === "LogIn/SignUp" ||
+      caption === "Sign out"
+        ? "0"
+        : "1",
   };
 
   function clickHandler() {
+    if (caption === "Sign out") {
+      localStorage.removeItem("id");
+      window.location.reload();
+    }
     if (disabled) return;
     setOpen((old) => !old);
     DataManager && setVisible((old) => !old);

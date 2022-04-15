@@ -213,13 +213,16 @@ export default function Sidebar() {
           {fontfamilies.map(renderFonts)}
         </Tab>
         {isLoggedIn ? (
-          <Tab
-            caption={syncLabel}
-            childs={syncs.length}
-            disabled={isSyncDisabled}
-          >
-            {syncs.map(renderSyncs)}
-          </Tab>
+          <>
+            <Tab
+              caption={syncLabel}
+              childs={syncs.length}
+              disabled={isSyncDisabled}
+            >
+              {syncs.map(renderSyncs)}
+            </Tab>
+            <Tab caption="Sign out"></Tab>
+          </>
         ) : (
           <Tab
             caption="LogIn/SignUp"

@@ -68,7 +68,7 @@ export default function Signup({ open, setOpen }) {
           onChange={(e) => setConfPassword(e.target.value)}
         />
         <button className="input" onClick={signup}>
-          Signup
+          SignUp
         </button>
       </div>
       <div className="button danger" onClick={() => setOpen(false)}>

@@ -25,4 +25,7 @@
   cursor: pointer;
   border: 1px solid rgb(50, 205, 50);
   background-color: rgb(50, 205, 50);
+  /* font-size: 18px; */
+  font-weight: bold;
+  color: #fff;
 }
