@@ -1,9 +1,6 @@
 <p align="center">
 <img src="https://editorx.vercel.app/static/images/logo-dark.png" alt="Logo Dark" width="320px" height="240px" />
 </p>
-<p align="center">
-<img src="https://editorx.vercel.app/static/images/logo-both.jpg" alt="Logo Both" width="320px" height="240px" />
-</p>
 
 ## Introduction
     
