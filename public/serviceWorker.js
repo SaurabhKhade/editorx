@@ -1,6 +1,6 @@
-const codeStore = "editorx-codes-cache-v4";
-const assetsStore = "editorx-assets-cache-v3";
-const staticStore = "editorx-static-cache-v3";
+const codeStore = "editorx-codes-cache-v5";
+const assetsStore = "editorx-assets-cache-v4";
+const staticStore = "editorx-static-cache-v4";
 
 const assets = [
   "/",

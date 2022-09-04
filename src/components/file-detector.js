@@ -1,320 +1,337 @@
-export default detector;
+export { detector, countExecutable };
 
 // Languages
 const actionscript = {
   language: "actionscript",
   logo: "/static/languages/actionscript.png",
-  placeholder: "Write your actionscript script here..."
-}
+  placeholder: "Write your actionscript script here...",
+};
 const applescript = {
   language: "applescript",
   logo: "/static/languages/applescript.png",
-  placeholder: "Write your applescript script here..."
-}
+  placeholder: "Write your applescript script here...",
+};
 const assembly = {
   language: "assembly_x86",
   logo: "/static/languages/assembly.png",
-  placeholder: "Write your assembly code here..."
-}
+  placeholder: "Write your assembly code here...",
+};
 const batch = {
   language: "batchfile",
   logo: "/static/languages/batch.png",
-  placeholder: "Write your batch code here..."
-}
+  placeholder: "Write your batch code here...",
+};
 const c = {
   name: "c",
   language: "c_cpp",
   logo: "/static/languages/c.png",
-  placeholder: "Write your c language code here..."
-}
+  placeholder: "Write your c language code here...",
+};
 const cpp = {
-  name: "cpp",
+  name: "cpp17",
   language: "c_cpp",
   logo: "/static/languages/cpp.png",
-  placeholder: "Write your c++ code here..."
-}
+  placeholder: "Write your c++ code here...",
+};
 const clojure = {
+  name: "clojure",
   language: "clojure",
   logo: "/static/languages/clojure.png",
-  placeholder: "Write your clojure code here..."
-}
+  placeholder: "Write your clojure code here...",
+};
 const cobol = {
+  name: "cobol",
   language: "cobol",
   logo: "/static/languages/cobol.png",
-  placeholder: "Write your cobol code here..."
-}
+  placeholder: "Write your cobol code here...",
+};
 const coffee = {
+  name: "coffeescript",
   language: "coffee",
   logo: "/static/languages/coffee.png",
-  placeholder: "Write your coffee script here..."
-}
+  placeholder: "Write your coffee script here...",
+};
 const csharp = {
-  name: "cs",
+  name: "csharp",
   language: "csharp",
   logo: "/static/languages/csharp.png",
-  placeholder: "Write your c# code here..."
-}
+  placeholder: "Write your c# code here...",
+};
 const css = {
   language: "css",
   logo: "/static/languages/css.png",
-  placeholder: "Write your css style here..."
-}
+  placeholder: "Write your css style here...",
+};
 const dart = {
+  name: "dart",
   language: "dart",
   logo: "/static/languages/dart.png",
-  placeholder: "Write your dart code here..."
-}
+  placeholder: "Write your dart code here...",
+};
 const dockerfile = {
   language: "dockerfile",
   logo: "/static/languages/dockerfile.png",
-  placeholder: "Write your dockerfile code here..."
-}
+  placeholder: "Write your dockerfile code here...",
+};
 const dot = {
   language: "dot",
   logo: "/static/languages/dot.png",
-  placeholder: "Write your dot code here..."
-}
+  placeholder: "Write your dot code here...",
+};
 const javascript = {
+  name: "nodejs",
   language: "javascript",
   logo: "/static/languages/javascript.png",
-  placeholder: "Write your javascript script here..."
-}
+  placeholder: "Write your javascript script here...",
+};
 const fortran = {
+  name: "fortran",
   language: "fortran",
   logo: "/static/languages/fortran.png",
-  placeholder: "Write your fortran code here..."
-}
+  placeholder: "Write your fortran code here...",
+};
 const fsharp = {
+  name: "fsharp",
   language: "fsharp",
   logo: "/static/languages/fsharp.png",
-  placeholder: "Write your f# code here..."
-}
+  placeholder: "Write your f# code here...",
+};
 const gitignore = {
   language: "gitignore",
   logo: "/static/languages/git.png",
-  placeholder: "Write your gitignore files here..."
-}
+  placeholder: "Write your gitignore files here...",
+};
 const go = {
+  name: "go",
   language: "golang",
   logo: "/static/languages/go.png",
-  placeholder: "Write your golang code here..."
-}
+  placeholder: "Write your golang code here...",
+};
 const graphql = {
   language: "graphqlschema",
   logo: "/static/languages/graphql.png",
-  placeholder: "Write your graphql schema here..."
-}
+  placeholder: "Write your graphql schema here...",
+};
 const groovy = {
+  name: "groovy",
   language: "groovy",
   logo: "/static/languages/groovy.png",
-  placeholder: "Write your groovy code here..."
-}
+  placeholder: "Write your groovy code here...",
+};
 const haml = {
   language: "haml",
   logo: "/static/languages/haml.png",
-  placeholder: "Write your haml markup here..."
-}
+  placeholder: "Write your haml markup here...",
+};
 const haskell = {
+  name: "haskell",
   language: "haskell",
   logo: "/static/languages/haskell.png",
-  placeholder: "Write your haskell code here..."
-}
+  placeholder: "Write your haskell code here...",
+};
 const html = {
   language: "html",
   logo: "/static/languages/html.png",
-  placeholder: "Write your html markup here..."
-}
+  placeholder: "Write your html markup here...",
+};
 const jade = {
   language: "jade",
   logo: "/static/languages/jade.png",
-  placeholder: "Write your pug template here..."
-}
+  placeholder: "Write your pug template here...",
+};
 const java = {
   name: "java",
   language: "java",
   logo: "/static/languages/java.png",
-  placeholder: "Write your java code here..."
-}
+  placeholder: "Write your java code here...",
+};
 const json = {
   language: "json",
   logo: "/static/languages/json.png",
-  placeholder: "Write your json data here..."
-}
+  placeholder: "Write your json data here...",
+};
 const jsp = {
   language: "jsp",
   logo: "/static/languages/jsp.png",
-  placeholder: "Write your jsp code here..."
-}
+  placeholder: "Write your jsp code here...",
+};
 const jsx = {
   language: "jsx",
   logo: "/static/languages/javascript.png",
-  placeholder: "Write your reactjs code here..."
-}
+  placeholder: "Write your reactjs code here...",
+};
 const julia = {
   language: "julia",
   logo: "/static/languages/julia.png",
-  placeholder: "Write your julia code here..."
-}
+  placeholder: "Write your julia code here...",
+};
 const kotlin = {
-  name: "kt",
+  name: "kotlin",
   language: "kotlin",
   logo: "/static/languages/kotlin.png",
-  placeholder: "Write your kotlin code here..."
-}
+  placeholder: "Write your kotlin code here...",
+};
 const latex = {
   language: "latex",
   logo: "/static/languages/latex.png",
-  placeholder: "Write your latex code here..."
-}
+  placeholder: "Write your latex code here...",
+};
 const less = {
   language: "less",
   logo: "/static/languages/less.png",
-  placeholder: "Write your less style here..."
-}
+  placeholder: "Write your less style here...",
+};
 const livescript = {
   language: "livescript",
   logo: "/static/languages/livescript.png",
-  placeholder: "Write your livescript script here..."
-}
+  placeholder: "Write your livescript script here...",
+};
 const lua = {
+  name: "lua",
   language: "lua",
   logo: "/static/languages/lua.png",
-  placeholder: "Write your lua code here..."
-}
+  placeholder: "Write your lua code here...",
+};
 const markdown = {
   language: "markdown",
   logo: "/static/languages/markdown.png",
-  placeholder: "Write your markdown here..."
-}
+  placeholder: "Write your markdown here...",
+};
 const matlab = {
   language: "matlab",
   logo: "/static/languages/matlab.png",
-  placeholder: "Write your matlab code here..."
-}
+  placeholder: "Write your matlab code here...",
+};
 const objectivec = {
+  name: "objc",
   language: "objectivec",
   logo: "/static/languages/objectivec.png",
-  placeholder: "Write your objective-c code here..."
-}
+  placeholder: "Write your objective-c code here...",
+};
 const pascal = {
+  name: "pascal",
   language: "pascal",
   logo: "/static/languages/pascal.png",
-  placeholder: "Write your pascal code here..."
-}
+  placeholder: "Write your pascal code here...",
+};
 const perl = {
+  name: "perl",
   language: "perl",
   logo: "/static/languages/perl.png",
-  placeholder: "Write your perl code here..."
-}
+  placeholder: "Write your perl code here...",
+};
 const php = {
+  name: "php",
   language: "php",
   logo: "/static/languages/php.png",
-  placeholder: "Write your php code here..."
-}
+  placeholder: "Write your php code here...",
+};
 const plain_text = {
   language: "plain_text",
   logo: "/static/languages/plain_text.png",
-  placeholder: "Write your text here..."
-}
+  placeholder: "Write your text here...",
+};
 const powershell = {
   language: "powershell",
   logo: "/static/languages/powershell.png",
-  placeholder: "Write your powershell code here..."
-}
+  placeholder: "Write your powershell code here...",
+};
 const python = {
-  name: "py",
+  name: "python3",
   language: "python",
   logo: "/static/languages/python.png",
-  placeholder: "Write your python code here..."
-}
+  placeholder: "Write your python code here...",
+};
 const r = {
+  name: "r",
   language: "r",
   logo: "/static/languages/r.png",
-  placeholder: "Write your r language code here..."
-}
+  placeholder: "Write your r language code here...",
+};
 const ruby = {
-  name: "rb",
+  name: "ruby",
   language: "ruby",
   logo: "/static/languages/ruby.png",
-  placeholder: "Write your ruby code here..."
-}
+  placeholder: "Write your ruby code here...",
+};
 const rust = {
+  name: "rust",
   language: "rust",
   logo: "/static/languages/rust.png",
-  placeholder: "Write your rust code here..."
-}
+  placeholder: "Write your rust code here...",
+};
 const sass = {
   language: "sass",
   logo: "/static/languages/sass.png",
-  placeholder: "Write your sass style here..."
-}
+  placeholder: "Write your sass style here...",
+};
 const scss = {
   language: "scss",
   logo: "/static/languages/scss.png",
-  placeholder: "Write your scss style here..."
-}
+  placeholder: "Write your scss style here...",
+};
 const scala = {
+  name: "scala",
   language: "scala",
   logo: "/static/languages/scala.png",
-  placeholder: "Write your scala code here..."
-}
+  placeholder: "Write your scala code here...",
+};
 const sql = {
   language: "sql",
   logo: "/static/languages/sql.png",
-  placeholder: "Write your sql query here..."
-}
+  placeholder: "Write your sql query here...",
+};
 const sqlserver = {
   language: "sqlserver",
   logo: "/static/languages/sqlserver.png",
-  placeholder: "Write your sqlserver query here..."
-}
+  placeholder: "Write your sqlserver query here...",
+};
 const stylus = {
   language: "stylus",
   logo: "/static/languages/stylus.png",
-  placeholder: "Write your stylus style here..."
-}
+  placeholder: "Write your stylus style here...",
+};
 const svg = {
   language: "svg",
   logo: "/static/languages/svg.png",
-  placeholder: "Write your svg markup here..."
-}
+  placeholder: "Write your svg markup here...",
+};
 const swift = {
   name: "swift",
   language: "swift",
   logo: "/static/languages/swift.png",
-  placeholder: "Write your swift code here..."
-}
+  placeholder: "Write your swift code here...",
+};
 const tsx = {
   language: "tsx",
   logo: "/static/languages/typescript.png",
-  placeholder: "Write your reactts code here..."
-}
+  placeholder: "Write your reactts code here...",
+};
 const typescript = {
   language: "typescript",
   logo: "/static/languages/typescript.png",
-  placeholder: "Write your typescript script here..."
-}
+  placeholder: "Write your typescript script here...",
+};
 const vbscript = {
   language: "vbscript",
   logo: "/static/languages/vbscript.png",
-  placeholder: "Write your vbscript script here..."
-}
+  placeholder: "Write your vbscript script here...",
+};
 const xml = {
   language: "xml",
   logo: "/static/languages/xml.png",
-  placeholder: "Write your xml markup here..."
-}
+  placeholder: "Write your xml markup here...",
+};
 const xquery = {
   language: "xquery",
   logo: "/static/languages/xquery.png",
-  placeholder: "Write your xquery code here..."
-}
+  placeholder: "Write your xquery code here...",
+};
 const yaml = {
   language: "yaml",
   logo: "/static/languages/yaml.png",
-  placeholder: "Write your yaml markup here..."
-}
-
+  placeholder: "Write your yaml markup here...",
+};
 
 // language-extension mapper
 
@@ -503,13 +520,22 @@ const mapper = {
   xqm: xquery,
   xqy: xquery,
   yaml,
-  yml: yaml
-}
-
+  yml: yaml,
+};
 
 // Get extension from file name
 function detector(file) {
   let split = file.split(".");
-  let extension = split[split.length-1];
-  return mapper[extension]?mapper[extension]: mapper["txt"];
+  let extension = split[split.length - 1];
+  return mapper[extension] ? mapper[extension] : mapper["txt"];
+}
+
+function countExecutable() {
+  let names = [];
+  for (let key in mapper) {
+    if (!names.includes(mapper[key].name)) {
+      names.push(mapper[key].name);
+    }
+  }
+  return names.length;
 }

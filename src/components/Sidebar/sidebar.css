@@ -1,5 +1,5 @@
 .sidebar {
-  border-left: .1em solid var(--sidebar-border);
+  border-left: 0.1em solid var(--sidebar-border);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -8,18 +8,19 @@
   background-color: var(--sidebar);
   padding: 20px 10px;
   overflow-y: scroll;
-  transition: right .2s ease;
+  transition: right 0.2s ease;
 }
 
 .theme-toggle {
   display: flex;
-  /* border: 1px solid red; */
   justify-content: flex-end;
   color: var(--sidebar-color);
   align-items: center;
   font-size: 1.6rem;
   padding-bottom: 10px;
-  color: var( --toggler-color);
+  color: var(--toggler-color);
+  width: fit-content;
+  margin-left: auto;
 }
 
 .theme-toggle p {
@@ -29,13 +30,14 @@
 .theme-toggle .wrapper {
   height: 1.7rem;
   width: 3.2rem;
-  padding: .1rem;
+  padding: 0.1rem;
   border-radius: 999px;
   border: 2px solid var(--toggler-color);
   margin: 0 10px;
   display: flex;
   align-items: center;
   position: relative;
+  cursor: pointer;
 }
 
 .theme-toggle .button {
@@ -44,7 +46,7 @@
   width: 1.3rem;
   border-radius: 50%;
   background-color: var(--toggler-color);
-  transition: left .2s ease;
+  transition: left 0.2s ease;
 }
 
 .sidebar-toggle-handler {
@@ -63,7 +65,7 @@
   right: 0;
   left: 0;
   z-index: 10;
-  background-color: hsla(0,0%,0%,.4);
+  background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 .sidebar-toggle-icon {
@@ -76,7 +78,8 @@
   border: 1px solid var(--sidebar-border);
   background-color: var(--sidebar);
   color: var(--sidebar-color);
-  transition: right .2s ease;
+  transition: right 0.2s ease;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 900px) {

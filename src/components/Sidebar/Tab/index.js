@@ -9,6 +9,7 @@ export default function Tab({
   setVisible,
   DataManager,
   disabled,
+  onClick,
 }) {
   const [open, setOpen] = useState(false);
   const height = 40;
@@ -19,8 +20,14 @@ export default function Tab({
   const arrow = {
     transform: `rotate(${open ? 90 : 0}deg)`,
     transition: "transform .1s ease",
-    opacity:
-      caption === "Backup or Restore" || caption === "LogIn/SignUp" ? "0" : "1",
+    opacity: [
+      "Clear all Files",
+      "Backup or Restore",
+      "LogIn/SignUp",
+      "Logout",
+    ].includes(caption)
+      ? "0"
+      : "1",
   };
 
   function clickHandler() {
@@ -30,7 +37,7 @@ export default function Tab({
   }
 
   return (
-    <div className="tab" style={style}>
+    <div className="tab" style={style} onClick={onClick ? onClick : () => {}}>
       <p onClick={clickHandler} className="tab-label">
         <span style={arrow}>
           <FaChevronRight />

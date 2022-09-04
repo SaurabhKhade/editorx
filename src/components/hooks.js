@@ -5,7 +5,7 @@ import {
   popupContext,
   palletContext,
 } from "./context";
-import detector from "./file-detector";
+import { detector } from "./file-detector";
 
 export function useConfig() {
   const [config, setConfig] = useContext(editorContext);

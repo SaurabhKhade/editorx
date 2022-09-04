@@ -2,10 +2,12 @@ import "./home.css";
 import { useTheme } from "../hooks";
 import { FaHandPointRight, FaHeart, FaUsers } from "react-icons/fa";
 import { GiCutDiamond } from "react-icons/gi";
+import { countExecutable } from "../file-detector";
 
 export default function Home() {
   const [theme] = useTheme();
   let logoLink = getLogo(theme);
+  const executableLanguages = countExecutable();
 
   return (
     <div className="home">
@@ -63,7 +65,9 @@ export default function Home() {
           </li>
           <li>
             <FaHandPointRight className="list-icon" />
-            <a href="#execute">Execute 8 different languages.</a>
+            <a href="#execute">
+              Execute {executableLanguages} different languages.
+            </a>
           </li>
           <li>
             <FaHandPointRight className="list-icon" />
@@ -175,7 +179,9 @@ export default function Home() {
       </section>
       <hr />
       <section id="execute">
-        <h3>&#10004;&nbsp;&nbsp;Execute 8 different languages.</h3>
+        <h3>
+          &#10004;&nbsp;&nbsp;Execute {executableLanguages} different languages.
+        </h3>
         <div className="content-wrapper reverse">
           <div className="img-wrapper">
             <img src="/static/images/execute.webp" alt="Execution" />
@@ -183,11 +189,12 @@ export default function Home() {
           <div className="written-wrapper">
             <p className="content">
               Our name is EditorX, but we are not only limited to editor. Yes
-              you guessed it correctly. You can execute 8 different programming
-              languages right here in this editor. This languages are C, C++,
-              C#, Java, Kotlin, Python, Ruby, Swift. We guess that most of the
-              beginners starts there journey with one of this languages. They
-              can use our editor to execute there code instantly.
+              you guessed it correctly. You can execute {executableLanguages}{" "}
+              different programming languages including C, C++, Java, Kotlin,
+              Python, Ruby, Swift and many more right here in this editor. We
+              guess that most of the beginners starts there journey with one of
+              this languages. They can use our editor to execute there code
+              instantly.
             </p>
           </div>
         </div>
@@ -213,6 +220,21 @@ export default function Home() {
             <li>
               <strong>
                 <a
+                  href="https://docs.jdoodle.com/integrating-compiler-ide-to-your-application"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  JDoodle API:
+                </a>
+              </strong>
+              <br />
+              JDoodle provides API endpoints to execute codes of more than 70
+              programming languages. EditorX uses JDoodle API under the hood to
+              execute codes.
+            </li>
+            {/* <li>
+              <strong>
+                <a
                   href="https://github.com/Jaagrav/CodeX"
                   target="_blank"
                   rel="noreferrer"
@@ -231,7 +253,7 @@ export default function Home() {
               >
                 Jaagrav
               </a>
-            </li>
+            </li> */}
           </ol>
         </div>
       </section>
@@ -246,7 +268,7 @@ export default function Home() {
             <li>
               <strong>
                 <a
-                  href="https://www.instagram.com/__saurabh_khade__/"
+                  href="https://saurabhkhade.github.io/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -276,7 +298,7 @@ export default function Home() {
                 </a>
               </strong>
             </li>
-            <li>
+            {/* <li>
               <strong>
                 <a
                   href="https://www.instagram.com/mahesh.kesgire/"
@@ -286,11 +308,11 @@ export default function Home() {
                   Mahesh Kesgire
                 </a>
               </strong>
-            </li>
+            </li> */}
           </ul>
         </div>
       </section>
-      <p className="version">v2.4.0</p>
+      <p className="version">v3.0.0</p>
     </div>
   );
 }

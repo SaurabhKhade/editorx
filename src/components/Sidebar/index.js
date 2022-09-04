@@ -1,7 +1,7 @@
 // non components
 import "./sidebar.css";
 import "./settings.css";
-import { useConfig, useTheme } from "../hooks";
+import { useConfig, useTheme, useFileSystem } from "../hooks";
 import { useState, useEffect } from "react";
 import { HiSun, HiMoon } from "react-icons/hi";
 import { useSwipeable } from "react-swipeable";
@@ -28,6 +28,7 @@ export default function Sidebar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSyncDisabled, setIsSyncDisabled] = useState(false);
   const [syncLabel, setSyncLabel] = useState("Sync");
+  const { setLoadedFile, files } = useFileSystem();
 
   const style = {
     right: open ? "0" : "-301px",
@@ -109,6 +110,25 @@ export default function Sidebar() {
     );
   }
 
+  function logout() {
+    // console.log("logout");
+    localStorage.setItem("id", "");
+    setIsLoggedIn(false);
+  }
+
+  function clearAllFiles() {
+    let ch = window.confirm(
+      "Are you sure you want to clear all files? Deleted files can't be recovered if they are not synced on server or downloaded by you."
+    );
+    if (ch) {
+      localStorage.setItem("userFiles", "{}");
+      setChilds(0);
+      sessionStorage.removeItem("current-file");
+      setLoadedFile(undefined);
+      window.location.reload();
+    }
+  }
+
   function renderSyncs(item) {
     async function click() {
       setSyncLabel("Syncing...");
@@ -134,6 +154,8 @@ export default function Sidebar() {
     }
     return <MakeItem item={item} key={item} click={click} />;
   }
+
+  // console.log(files);
 
   return (
     <>
@@ -213,13 +235,16 @@ export default function Sidebar() {
           {fontfamilies.map(renderFonts)}
         </Tab>
         {isLoggedIn ? (
-          <Tab
-            caption={syncLabel}
-            childs={syncs.length}
-            disabled={isSyncDisabled}
-          >
-            {syncs.map(renderSyncs)}
-          </Tab>
+          <>
+            <Tab
+              caption={syncLabel}
+              childs={syncs.length}
+              disabled={isSyncDisabled}
+            >
+              {syncs.map(renderSyncs)}
+            </Tab>
+            <Tab caption="Logout" onClick={logout}></Tab>
+          </>
         ) : (
           <Tab
             caption="LogIn/SignUp"
@@ -232,6 +257,9 @@ export default function Sidebar() {
           DataManager
           setVisible={setVisible}
         ></Tab>
+        {Object.keys(files).length > 0 && (
+          <Tab caption="Clear all Files" onClick={clearAllFiles}></Tab>
+        )}
       </div>
     </>
   );
@@ -257,7 +285,8 @@ function MakeItem({ item, click, match }) {
   );
 }
 
-const url = `http://localhost:4000/api/sync`;
+// const url = `http://localhost:3001/sync`;
+const url = `https://editorx-api.vercel.app/sync`;
 
 async function uploadSettings(id) {
   let config = localStorage.getItem("editorConfig");
@@ -393,7 +422,7 @@ const fontfamilies = [
   "Monolisa",
   "Noto Mono",
   "Open Sans",
-  "Press Start 2p",
+  // "Press Start 2p",
   "Roboto",
   "Source Code Pro",
   "Sudo",

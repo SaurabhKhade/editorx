@@ -1,7 +1,7 @@
 import { useFileSystem } from "../hooks";
 import { useState, useEffect } from "react";
 import { FaPlay } from "react-icons/fa";
-import fileDetector from "../file-detector";
+import { detector as fileDetector } from "../file-detector";
 import axios from "axios";
 import "./executer.css";
 
@@ -22,29 +22,46 @@ export default function Exec() {
     let language = whichLang(loadedFile);
     let stdin = input;
     let payload = {
-      code,language,input:stdin
+      script: code,
+      language,
+      stdin,
     };
-    setOutput('waiting...');
-    request(payload)
-    .then(output=>setOutput(output));
+    setOutput("waiting...");
+    request(payload).then((output) => showOutput(output));
   }
-  
-  return show?(
+
+  function showOutput(output) {
+    setOutput(
+      `Time Taken: ${output.cpuTime}s Memory Used: ${output.memory} KB\n\n${output.output}`
+    );
+  }
+
+  return show ? (
     <>
-    <div className="run-btn" onClick={()=>setInputBox(true)}>
+      <div className="run-btn" onClick={() => setInputBox(true)}>
         <FaPlay />
-    </div>
-    {inputBox?
-    <div className="exec-input">
-      <label htmlFor="std-in">STDIN</label>
-      <textarea rows="5" id="std-in" value={input} onChange={e=>setInput(e.target.value)}/>
-      <button onClick={execute}>Run</button>
-      <label htmlFor="std-out">STDOUT</label>
-      <textarea rows="10" id="std-out" value={output} readOnly/>
-      <button onClick={()=>setInputBox(false)}>Close</button>
-    </div>:<></>
-    }
-    </>) : (<></>);
+      </div>
+      {inputBox ? (
+        <div className="exec-input">
+          <label htmlFor="std-in">STDIN</label>
+          <textarea
+            rows="5"
+            id="std-in"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <button onClick={execute}>Run</button>
+          <label htmlFor="std-out">STDOUT</label>
+          <textarea rows="10" id="std-out" value={output} readOnly />
+          <button onClick={() => setInputBox(false)}>Close</button>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
+  ) : (
+    <></>
+  );
 }
 
 function whichLang(name) {
@@ -52,23 +69,27 @@ function whichLang(name) {
 }
 
 async function request(data) {
-  
   const url = "https://editorx-api.vercel.app/execute";
-  
-  const config = {
-    method: 'POST',
-    url,
-    headers: { 
-      'Content-Type': 'application/json'
-    },
-    data
-  }
+  // const url = "http://localhost:3001/execute";
 
-  let res = await axios(config);
-  
-  if(res.data.status === 'success') {
-    return res.data.output;
-  } else {
-    return res.data.message;
+  const config = {
+    method: "POST",
+    url,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data,
+  };
+
+  try {
+    let res = await axios(config);
+
+    if (res.data.status === "success") {
+      return res.data.output;
+    } else {
+      return res.data.message;
+    }
+  } catch (e) {
+    return { cpuTime: "-", memory: "-", output: "Error Occured" };
   }
 }

@@ -1,9 +1,10 @@
-.switch,.hasInput {
-  border: .1em solid var(--switch);
+.switch,
+.hasInput {
+  border: 0.1em solid var(--switch);
   height: 75%;
   width: 2em;
   aspect-ratio: 1/1 !important;
-  border-radius: .1em;
+  border-radius: 0.1em;
   display: grid;
   place-items: center;
   /* padding: .3em; */
@@ -47,12 +48,12 @@
   font-weight: bold;
 }
 
+.hasInput input::-webkit-outer-spin-button,
 .hasInput input::outer-spin-button,
+.hasInput input::-webkit-inner-spin-button,
 .hasInput input::inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
   appearance: none;
   margin: 0;
-}
-
-.hasInput input {
-  appearance: textfield;
 }

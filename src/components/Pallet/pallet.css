@@ -17,8 +17,9 @@
 }
 
 .pallet-file {
-  padding: .3em .6em;
+  padding: 0.3em 0.6em;
   user-select: none;
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 500px) {

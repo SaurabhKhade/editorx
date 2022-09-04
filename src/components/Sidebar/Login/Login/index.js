@@ -8,7 +8,8 @@ export default function Login({ open, setOpen }) {
   };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const url = "http://localhost:4000/api/login";
+  // const url = "http://localhost:3001/login";
+  const url = "https://editorx-api.vercel.app/login";
 
   function login() {
     if (email === "") {
@@ -32,6 +33,7 @@ export default function Login({ open, setOpen }) {
           window.location.reload();
         })
         .catch((err) => {
+          console.log(err);
           alert(err.response.data.message);
         });
     }
